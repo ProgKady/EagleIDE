@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eagle IDE</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              purple: '#8b5cf6',
+              pink: '#ec4899',
+              blue: '#3b82f6',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+            }
+          },
+          animation: {
+            'float-slow': 'float 8s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', filter: 'drop-shadow(0 0 15px rgba(139, 92, 246, 0.4))' },
+              '50%': { opacity: '0.8', filter: 'drop-shadow(0 0 35px rgba(236, 72, 153, 0.7))' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* ==========================================================
+       DARK MODE STYLES (DEFAULT)
+       ========================================================== */
+    .dark body {
+      background-color: #030712;
+      color: #f3f4f6;
+    }
+    .dark .glass-nav {
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .dark .glass-card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.25);
+    }
+    .dark .card-header-bar {
+      background-color: #0f172a;
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+    }
+    .dark .text-heading { color: #ffffff; }
+    .dark .text-body { color: #94a3b8; }
+    .dark .bg-ambient { display: block; }
+    .dark .footer-bg { background-color: #020617; border-color: rgba(255, 255, 255, 0.08); }
+
+    /* ==========================================================
+       LIGHT MODE STYLES (COMPLETE OVERHAUL)
+       ========================================================== */
+    .light body {
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+    .light .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+    }
+    .light .glass-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+    }
+    .light .glass-card:hover {
+      border-color: #8b5cf6;
+      box-shadow: 0 20px 35px -10px rgba(139, 92, 246, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+    }
+    .light .card-header-bar {
+      background-color: #f1f5f9;
+      border-color: #e2e8f0;
+      color: #475569;
+    }
+    .light .text-heading { color: #0f172a; }
+    .light .text-body { color: #475569; }
+    .light .bg-ambient { display: none; } /* Hide heavy dark glowing elements in light mode */
+    .light .footer-bg { background-color: #ffffff; border-color: #e2e8f0; }
+
+    /* Gradient Text Styling */
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .light .gradient-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scroll Reveal Transition */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body class="transition-colors duration-300 antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- Ambient Background Glowing Lights (Dark Mode Only) -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-ambient">
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[140px] animate-pulse-glow"></div>
+    <div class="absolute top-1/2 -left-40 w-[600px] h-[600px] bg-pink-600/10 rounded-full blur-[140px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+    <div class="absolute -bottom-40 right-1/3 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] animate-pulse-glow" style="animation-delay: 1s;"></div>
+  </div>
+
+  <!-- Modern Glass Navigation Bar -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Eagle Logo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative">
+          <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+          <div class="relative w-11 h-11 bg-slate-950 dark:bg-slate-950 light:bg-slate-100 border border-white/10 light:border-slate-300 rounded-xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-purple-400 animate-pulse-glow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              <path d="M12 22a10 10 0 0 0 10-10H2a10 10 0 0 0 10 10z" class="opacity-40"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight text-heading">Eagle <span class="gradient-text">IDE</span></span>
+        </div>
+      </a>
+
+      <!-- Nav Items -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-body">
+        <a href="#overview" class="hover:text-purple-500 transition flex items-center gap-2"><i class="fa-solid fa-layer-group text-xs text-purple-500"></i> Overview</a>
+        <a href="#editor-section" class="hover:text-purple-500 transition flex items-center gap-2"><i class="fa-solid fa-code text-xs text-blue-500"></i> Editor & Languages</a>
+        <a href="#ai-section" class="hover:text-purple-500 transition flex items-center gap-2"><i class="fa-solid fa-robot text-xs text-pink-500"></i> AI Agent</a>
+        <a href="#visual-section" class="hover:text-purple-500 transition flex items-center gap-2"><i class="fa-solid fa-cubes text-xs text-cyan-500"></i> Visual Builder</a>
+        <a href="#arduino-section" class="hover:text-purple-500 transition flex items-center gap-2"><i class="fa-solid fa-microchip text-xs text-emerald-500"></i> Arduino Simulator</a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-4">
+        <!-- Theme Switcher Button -->
+        <button id="themeToggle" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-body hover:text-purple-500 transition shadow-sm" title="Toggle Theme">
+          <i class="fa-solid fa-moon text-base dark:hidden text-slate-700"></i>
+          <i class="fa-solid fa-sun text-base hidden dark:block text-amber-400"></i>
+        </button>
+
+        <a href="#download" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold text-white text-sm shadow-lg shadow-purple-500/20 hover:scale-105 transition duration-300 flex items-center gap-2">
+          <i class="fa-solid fa-download text-xs"></i> Get Eagle IDE
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Showcase Section -->
+  <section id="overview" class="relative pt-20 pb-16 px-6 max-w-6xl mx-auto text-center reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-purple-500/30 text-purple-600 dark:text-purple-300 text-xs font-bold tracking-wide mb-8">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      Version 2.5 Released — Full Hardware & Software Convergence
+    </div>
+
+    <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight leading-tight text-heading mb-8">
+      The Next-Generation IDE Powered by <br>
+      <span class="gradient-text">Self-Healing AI & Physics Simulation</span>
+    </h1>
+
+    <p class="text-base sm:text-xl text-body max-w-4xl mx-auto leading-relaxed font-normal mb-10">
+      Eagle IDE delivers a unified ecosystem engineered for developers and innovators. From agentic AI code planning and 30+ language syntax support to interactive 2D/3D visual builders and physical MNA circuit solvers — build everything in one blazingly fast desktop workspace.
+    </p>
+
+    <!-- Key Metrics Badges -->
+    <div class="flex flex-wrap items-center justify-center gap-6 pt-2">
+      <div class="px-5 py-3 rounded-2xl glass-card flex items-center gap-3">
+        <i class="fa-solid fa-code text-purple-500 text-lg"></i>
+        <div class="text-left"><div class="text-sm font-bold text-heading">30+ Languages</div><div class="text-[11px] text-body">Java, Python, C++, Rust, Web</div></div>
+      </div>
+	  
+	  <div class="px-5 py-3 rounded-2xl glass-card flex items-center gap-3">
+        <i class="fa-solid fa-code text-purple-500 text-lg"></i>
+        <div class="text-left"><div class="text-sm font-bold text-heading">Visual Builder</div><div class="text-[11px] text-body">Drag & Drop, Build 2D/3D Websites</div></div>
+      </div>
+	  
+      <div class="px-5 py-3 rounded-2xl glass-card flex items-center gap-3">
+        <i class="fa-solid fa-robot text-pink-500 text-lg"></i>
+        <div class="text-left"><div class="text-sm font-bold text-heading">Eagle AI Engine</div><div class="text-[11px] text-body">Self-healing & parallel fixing</div></div>
+      </div>
+      <div class="px-5 py-3 rounded-2xl glass-card flex items-center gap-3">
+        <i class="fa-solid fa-microchip text-emerald-500 text-lg"></i>
+        <div class="text-left"><div class="text-sm font-bold text-heading">Arduino Simulator</div><div class="text-[11px] text-body">Write code & simulate things</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 1: Core Code Editor & 30+ Languages -->
+  <section id="editor-section" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text Description -->
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-400 font-mono text-xs uppercase font-bold">
+          <i class="fa-solid fa-terminal"></i> Module 01 / Eagle IDE
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-heading leading-tight">
+          High-Speed Polyglot <br><span class="gradient-text">Editor & Syntax Linter</span>
+        </h2>
+        <p class="text-body text-base leading-relaxed">
+          Eagle IDE’s core editor is designed for extreme efficiency, supporting over 30 programming languages out of the box. Powered by custom JavaFX RichTextFX and CodeMirror 5.65.16 extensions, it handles complex project hierarchies effortlessly with multi-tab session management.
+        </p>
+        <p class="text-body text-base leading-relaxed">
+          It includes inline git diff visualization right in the editor gutter, signatures help, hover info maps for Java, Python, SQL, PHP, and real-time brace balancing linting for C, C++, Kotlin, Go, and Rust.
+        </p>
+        
+        <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-heading">
+          <span class="px-3 py-1.5 rounded-lg glass-card border"><i class="fa-brands fa-python text-blue-500 mr-1"></i> Python</span>
+          <span class="px-3 py-1.5 rounded-lg glass-card border"><i class="fa-brands fa-react text-cyan-500 mr-1"></i> React & JS</span>
+          <span class="px-3 py-1.5 rounded-lg glass-card border"><i class="fa-brands fa-java text-orange-500 mr-1"></i> Java</span>
+          <span class="px-3 py-1.5 rounded-lg glass-card border"><i class="fa-brands fa-rust text-amber-500 mr-1"></i> Rust</span>
+        </div>
+      </div>
+
+      <!-- Image Preview Card -->
+      <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden reveal">
+        <div class="card-header-bar px-4 py-3 border-b flex items-center justify-between text-xs font-mono">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-code text-purple-500"></i> Eagle IDE</span>
+          <span class="text-purple-500"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Expand image</span>
+        </div>
+        <div class="p-3 relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80', 'Eagle IDE High-Speed Code Editor')">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80" alt="Code Editor Interface" class="w-full h-80 object-cover rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
+            <span class="px-4 py-2 bg-purple-600 text-white font-bold text-xs rounded-xl shadow-lg"><i class="fa-solid fa-expand mr-2"></i> View Full-Resolution Interface</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Module 2: Autonomous AI Agent -->
+  <section id="ai-section" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Image Preview Card -->
+      <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden order-2 lg:order-1 reveal">
+        <div class="card-header-bar px-4 py-3 border-b flex items-center justify-between text-xs font-mono">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-pink-500"></i> Eagle AI Agent Architecture Planner</span>
+          <span class="text-emerald-500 font-bold">Self-Healing Pass 100%</span>
+        </div>
+        <div class="p-3 relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80', 'Eagle IDE AI Autonomous Agent')">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="AI Agent Interface" class="w-full h-80 object-cover rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
+            <span class="px-4 py-2 bg-pink-600 text-white font-bold text-xs rounded-xl shadow-lg"><i class="fa-solid fa-expand mr-2"></i> View Full-Resolution Interface</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Description -->
+      <div class="lg:col-span-5 space-y-6 order-1 lg:order-2 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-pink-500/10 border border-pink-500/30 text-pink-600 dark:text-pink-400 font-mono text-xs uppercase font-bold">
+          <i class="fa-solid fa-brain"></i> Module 02 / Eagle Agentic Intelligence
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-heading leading-tight">
+          Autonomous AI <br><span class="gradient-text">Project Orchestrator</span>
+        </h2>
+        <p class="text-body text-base leading-relaxed">
+          The AI Project Generator delegated via <code>EagleAI Engine</code> is an agentic orchestrator. It receives high-level prompts, generates architectural JSON file lists via <code>Architecture Planner</code>, and executes parallel multi-file batch generation.
+        </p>
+        <p class="text-body text-base leading-relaxed">
+          Equipped with <code>Project Auditor</code>, the AI agent performs self-review loops to detect missing imports, broken references, or syntax errors, automatically applying self-healing code fixes. Integrated multi-provider connection options include OpenAI, Gemini, Ollama, Groq and more.
+        </p>
+
+        <ul class="space-y-2.5 text-sm font-semibold text-heading">
+          <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-pink-500"></i> Automatic project backups before AI generation</li>
+          <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-pink-500"></i> Push Updates to Github auto</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Module 3: Visual Web & App Builder -->
+  <section id="visual-section" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text Description -->
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 font-mono text-xs uppercase font-bold">
+          <i class="fa-solid fa-cubes"></i> Module 03 / Visual Builder
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-heading leading-tight">
+          Visual Layout Engine & <br><span class="gradient-text">Tailwind Exporter</span>
+        </h2>
+        <p class="text-body text-base leading-relaxed">
+          Design responsive web and mobile interfaces using an intuitive drag-and-drop visual canvas. The Visual Builder converts Figma designs and custom elements directly into clean, production-ready HTML with scoped Tailwind CSS utilities.
+        </p>
+        <p class="text-body text-base leading-relaxed">
+          Includes an embedded Three.js 3D model viewer supporting glTF, GLB, OBJ, and STL formats, alongside responsive breakpoint testing across Phone, Tablet, Laptop, and Wide viewports.
+        </p>
+      </div>
+
+      <!-- Image Preview Card -->
+      <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden reveal">
+        <div class="card-header-bar px-4 py-3 border-b flex items-center justify-between text-xs font-mono">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-cyan-500"></i> Visual Canvas & 3D WebGL Stage</span>
+          <span class="text-cyan-500">Responsive Engine Active</span>
+        </div>
+        <div class="p-3 relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80', 'Eagle IDE Visual Builder & 3D Stage')">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80" alt="Visual Builder Interface" class="w-full h-80 object-cover rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
+            <span class="px-4 py-2 bg-cyan-600 text-white font-bold text-xs rounded-xl shadow-lg"><i class="fa-solid fa-expand mr-2"></i> View Full-Resolution Interface</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Module 4: Arduino & Hardware Simulator -->
+  <section id="arduino-section" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Image Preview Card -->
+      <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden order-2 lg:order-1 reveal">
+        <div class="card-header-bar px-4 py-3 border-b flex items-center justify-between text-xs font-mono">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-microchip text-emerald-500"></i> Arduino Simulator</span>
+          <span class="text-emerald-500 font-bold">60 FPS MNA Solver</span>
+        </div>
+        <div class="p-3 relative group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80', 'Arduino & Electronics Physics Simulator')">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Arduino Simulator Interface" class="w-full h-80 object-cover rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
+            <span class="px-4 py-2 bg-emerald-600 text-white font-bold text-xs rounded-xl shadow-lg"><i class="fa-solid fa-expand mr-2"></i> View Full-Resolution Interface</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Description -->
+      <div class="lg:col-span-5 space-y-6 order-1 lg:order-2 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase font-bold">
+          <i class="fa-solid fa-bolt"></i> Module 04 / Arduino Simulator
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-heading leading-tight">
+          Physics-Driven <br><span class="gradient-text">Arduino Simulator</span>
+        </h2>
+        <p class="text-body text-base leading-relaxed">
+          Powered by the E38 Motion Engine, the simulator models microcontrollers, ICs, sensors, motors, and passive components using Modified Nodal Analysis (MNA). It simulates back-EMF, thermal filament curves, motor spin-ups, and servo pulse slew in real time.
+        </p>
+        <p class="text-body text-base leading-relaxed">
+          Features bidirectional code-to-circuit generation (place parts to emit C++ or paste code to build circuits), a 4-channel oscilloscope, edge-triggered logic analyzer with UART/I2C decoders, and magnetic snapping.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Download Action Banner -->
+  <section id="download" class="py-20 px-6 max-w-5xl mx-auto text-center reveal">
+    <div class="relative glass-card rounded-3xl p-10 sm:p-16 border border-purple-500/30 overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
+      
+      <div class="relative z-10 space-y-6">
+        <h2 class="text-3xl sm:text-5xl font-black text-heading">
+          Supercharge Your Workflow Today
+        </h2>
+        <p class="text-body max-w-2xl mx-auto text-base">
+          Experience the ultimate modern environment for software development, autonomous AI orchestration, and electronic physics simulation.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold text-white shadow-xl shadow-purple-500/25 hover:scale-105 transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-windows"></i> Download Eagle IDE (.exe)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Clean Footer -->
+  <footer class="footer-bg border-t py-12 px-6 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      
+      <!-- Brand & Description -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-purple-600/20 border border-purple-500/40 rounded-xl flex items-center justify-center text-purple-500">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <div class="font-extrabold text-heading text-lg">Eagle IDE</div>
+          <div class="text-xs text-body">Engineered for Software Creators & Hardware Innovators</div>
+        </div>
+      </div>
+
+      <!-- Security Stamp Badge -->
+      <div class="text-xs font-mono text-body">
+        <span class="inline-block px-4 py-1.5 rounded-full glass-card">
+          Zero-Knowledge Security &bull; Salted Hashes &bull; Offline Physics
+        </span>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-xs text-body">
+        &copy; 2026 Kadysoft Inc. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Image Expansion -->
+  <div id="lightboxModal" class="lightbox fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 invisible" onclick="closeLightbox()">
+    <div class="relative bg-slate-900 dark:bg-slate-900 light:bg-white rounded-2xl p-2 max-w-6xl w-full border border-slate-800 light:border-slate-300 shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-slate-800 light:border-slate-200">
+        <span id="lightboxTitle" class="font-bold text-sm text-heading">Interface Preview</span>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-slate-800 light:bg-slate-200 text-body hover:text-heading flex items-center justify-center text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="p-2">
+        <img id="lightboxImg" src="" alt="Expanded Preview" class="w-full h-auto max-h-[82vh] object-contain rounded-xl">
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Functions -->
+  <script>
+    // 1. Theme Toggle Logic (Default: Dark Mode)
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+      } else {
+        htmlElement.classList.remove('light');
+        htmlElement.classList.add('dark');
+      }
+    });
+
+    // 2. Scroll Reveal Animation Logic
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 80) {
+          element.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // 3. Image Lightbox Expansion Functions
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+
+    function openLightbox(imgSrc, title) {
+      lightboxImg.src = imgSrc;
+      lightboxTitle.textContent = title;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
