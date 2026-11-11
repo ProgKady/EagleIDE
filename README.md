@@ -1,15 +1,14 @@
-
 <div align="center">
 
-<img src="./EagleIDE.png" width="125" alt="EagleIDE">
+<img src="./5.png" width="140" alt="Eagle IDE">
 
-# 🦅 EagleIDE
+# 🦅 Eagle IDE
 
 ### ONE IDE. MULTIPLE WORLDS. UNLIMITED POSSIBILITIES.
 
 **Design · Develop · Simulate · Automate · Create**
 
-An all-in-one development environment combining visual design, powerful code editing, Android development, Arduino simulation, and intelligent AI-powered project automation.
+An all-in-one next-generation development environment that unifies a high-speed polyglot code editor, autonomous self-healing AI, professional visual web & 3D builder, and real physics-based Arduino simulation — inside one clean, powerful desktop workspace.
 
 <br>
 
@@ -22,21 +21,26 @@ An all-in-one development environment combining visual design, powerful code edi
 <br><br>
 
 <a href="https://progkady.github.io/EagleIDE/">
-<img src="https://img.shields.io/badge/🌐_Official_Website-Visit-2563EB?style=for-the-badge" alt="Website">
+<img src="https://img.shields.io/badge/🌐_Official_Website-Visit_Now-007ACC?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
 </a>
+&nbsp;
 <a href="https://github.com/ProgKady/EagleIDE/releases">
-<img src="https://img.shields.io/badge/⬇_Download-Get_EagleIDE-16A34A?style=for-the-badge" alt="Download">
+<img src="https://img.shields.io/badge/⬇_Download-Get_Eagle_IDE-16A34A?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
 </a>
+&nbsp;
 <a href="https://github.com/ProgKady/EagleIDE/issues">
-<img src="https://img.shields.io/badge/Support-Report_Issue-EA580C?style=for-the-badge" alt="Support">
+<img src="https://img.shields.io/badge/Support-Report_Issue-EA580C?style=for-the-badge&logo=github&logoColor=white" alt="Support">
 </a>
 
 <br><br>
 
+<img src="https://img.shields.io/badge/Version-OMAR_2.1.0-7C3AED?style=flat-square">
 <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white">
-<img src="https://img.shields.io/badge/IDE-EagleIDE-7C3AED?style=flat-square">
-<img src="https://img.shields.io/badge/AI-Eagle_AI-DB2777?style=flat-square">
-<img src="https://img.shields.io/badge/Focus-Multi--Discipline-0891B2?style=flat-square">
+<img src="https://img.shields.io/badge/Languages-30+-569CD6?style=flat-square&logo=code&logoColor=white">
+<img src="https://img.shields.io/badge/AI-Self--Healing_Engine-C586C0?style=flat-square&logo=robot&logoColor=white">
+<img src="https://img.shields.io/badge/Physics-60_FPS_MNA_Solver-6A9955?style=flat-square">
+<img src="https://img.shields.io/badge/Visual-Drag_&_Drop_3D-4EC9B0?style=flat-square">
+<img src="https://img.shields.io/badge/License-Proprietary-gray?style=flat-square">
 
 </div>
 
@@ -46,73 +50,48 @@ An all-in-one development environment combining visual design, powerful code edi
 
 # 🇬🇧 English Documentation
 
-## 🚀 Welcome to EagleIDE
+## 🚀 Welcome to Eagle IDE
 
-**EagleIDE** is more than a code editor. It is an integrated desktop development environment designed to bring multiple creative and technical workflows together.
+**Eagle IDE** is not just another code editor.  
+It is a complete unified workspace engineered for serious developers, designers, students, makers, and innovators.
 
-Imagine having a visual design studio, a powerful code editor, an Android development workflow, an Arduino simulator, and an intelligent AI agent — all connected within one environment.
+It combines:
 
-EagleIDE is built to help developers, designers, students, and creators move from an idea to a working project without constantly switching between disconnected tools.
+- A **blazing-fast polyglot code editor** (30+ languages)
+- An **autonomous self-healing AI agent** (Eagle AI)
+- A **professional visual web & 3D builder**
+- A **real physics-based Arduino simulator** (60 FPS MNA solver)
 
-> **From visual ideas to real projects. From code to intelligent automation.**
+All inside one clean, high-performance desktop environment.
 
----
-
-# ✨ The EagleIDE Ecosystem
-
-## 🎨 01 — Visual Builder
-### Design Visually. Build Beautiful Interfaces.
-
-A visual web-design workspace inspired by modern interface design tools such as Figma.
-
-Create, arrange, customize, and refine web interfaces through a visual workflow while keeping the power of web technologies within reach.
-
-**Key Capabilities**
-
-- Visual interface design.
-- Drag-and-drop workflow.
-- Flexible element positioning and arrangement.
-- Visual property editing.
-- Styling and appearance customization.
-- Web layout creation.
-- Design-oriented project workflow.
-- Connection between visual creation and web development.
-
-Whether you're building a landing page, dashboard, portfolio, or application interface, Visual Builder helps bring your ideas to life.
-
-<div align="center">
-
-<img src="./VisualBuilder.png" width="95%" alt="EagleIDE Visual Builder">
-
-**VISUAL BUILDER — Your ideas, visually transformed.**
-
-</div>
+> **Stop jumping between tools.  
+> Build software and hardware systems in a single focused flow.**
 
 ---
 
-## 💻 02 — Powerful Code Editor
-### A Workspace Built for Developers.
+# ✨ The Eagle IDE Ecosystem
 
-A dedicated coding environment for creating, editing, and managing real development projects.
+## 💻 01 — High-Speed Polyglot Editor
+### Extreme efficiency. Professional tooling. Real power.
 
-EagleIDE brings code-focused development and visual tools into one connected workspace.
+Eagle IDE’s core editor is engineered for speed and precision. It ships with native support for more than **30 programming languages and frameworks** out of the box — including Java, Python, C, C++, Rust, Kotlin, Go, PHP, SQL, JavaScript, TypeScript, React, and many more.
+
+Built on a highly optimized combination of **JavaFX RichTextFX** and **CodeMirror 5.65.16** extensions, the editor stays responsive even with large multi-file projects and deep folder hierarchies.
 
 **Key Capabilities**
 
-- HTML development.
-- CSS development.
-- JavaScript development.
-- Project and file management.
-- Syntax-focused editing tools.
-- Web development workflow.
-- Integration with other EagleIDE modules.
-- AI-assisted coding with Eagle AI.
-
-From quick experiments to complete projects, EagleIDE gives you a place to write, organize, and improve your code.
+- Multi-tab session management
+- Inline Git diff visualization in the gutter
+- Intelligent signature help & rich hover information
+- Real-time brace balancing and linting
+- Support for Java, Python, C/C++, Rust, Kotlin, Go, PHP, SQL, JS/TS, React and more
+- Seamless integration with Eagle AI and other modules
 
 <div align="center">
 
-<img src="./EagleIDE.png" width="95%" alt="EagleIDE Code Editor">
+| Editor View 1 | Editor View 2 |
+|:---:|:---:|
+| <img src="./5.png" width="100%" alt="Eagle IDE Editor"> | <img src="./6.png" width="100%" alt="Eagle IDE Editor"> |
 
 **CODE EDITOR — Write. Build. Improve.**
 
@@ -120,87 +99,105 @@ From quick experiments to complete projects, EagleIDE gives you a place to write
 
 ---
 
-## 📱 03 — Web to Android
-### Turn Web Technologies into Mobile Experiences.
+## 🤖 02 — Eagle AI (Autonomous Project Orchestrator)
+### Not a chat wrapper. A real agentic engine.
 
-EagleIDE brings web development closer to Android application creation.
+The **EagleAI Engine** is a true agentic orchestrator.  
+Give it a high-level goal and it:
 
-Use familiar web technologies to create application interfaces and develop mobile-oriented projects.
+1. Plans the entire architecture
+2. Generates structured JSON file lists via the Architecture Planner
+3. Executes parallel multi-file code generation
+4. Runs deep self-review loops through the Project Auditor
+5. Automatically applies self-healing fixes until the project is clean
 
-**Key Capabilities**
+**Supported Providers**  
+OpenAI · Gemini · Ollama · Groq · and more
 
-- Web-based application interfaces.
-- HTML, CSS, and JavaScript workflows.
-- Application project organization.
-- Reuse web development knowledge.
-- Connect web projects with Android development workflows.
+**Key Features**
 
-**One creative workflow — from web to mobile.**
-
----
-
-## ⚡ 04 — Arduino Simulator
-### Explore Electronics. Simulate. Experiment.
-
-An electronics simulation environment designed to help users explore Arduino projects and experiment with electronic components.
-
-Learn by building, test your ideas, and understand how components work together.
-
-**Key Capabilities**
-
-- Arduino sketch development.
-- Electronic component simulation.
-- Component connection and pin configuration.
-- Circuit experimentation.
-- Interactive learning workflow.
-- Test and refine project ideas.
+- Automatic project backups before any AI action
+- Push updates directly to GitHub
+- Multi-provider support — switch models anytime
+- Self-healing pass with missing import / broken reference detection
+- Parallel multi-file generation
 
 <div align="center">
 
-<img src="./ArduinoSimulator.png" width="95%" alt="EagleIDE Arduino Simulator">
+| Eagle AI 1 | Eagle AI 2 |
+|:---:|:---:|
+| <img src="./7.png" width="100%" alt="Eagle AI"> | <img src="./8.png" width="100%" alt="Eagle AI"> |
 
-**ARDUINO SIMULATOR — Bring electronic ideas to life.**
+| Eagle AI 3 | Eagle AI 4 |
+|:---:|:---:|
+| <img src="./9.png" width="100%" alt="Eagle AI"> | <img src="./10.png" width="100%" alt="Eagle AI"> |
+
+**EAGLE AI — Understand. Plan. Execute. Heal. Create.**
 
 </div>
 
 ---
 
-## 🤖 05 — Eagle AI
-### An Intelligent Agent for Your Development Environment.
+## 🎨 03 — Visual Builder & Tailwind Exporter
+### Design visually. Export production-ready code.
 
-Meet **Eagle AI** — an AI-powered development assistant designed to work with projects, files, code, and available development tools.
+Design modern responsive web and mobile interfaces using a powerful drag-and-drop visual canvas.  
+The Visual Builder converts your designs into clean, production-ready HTML with carefully scoped Tailwind CSS utilities — no bloat, no unnecessary classes.
 
-It aims to go beyond ordinary chat by helping turn instructions into structured development tasks and practical project changes.
+You can also import Figma designs and turn them into real editable components.
 
-### 🧠 Understand
+**Advanced Features**
 
-- Analyze project structures.
-- Read and understand existing code.
-- Explore project files and dependencies.
-- Identify possible problems and improvements.
-
-### ⚙️ Plan & Execute
-
-- Break complex requests into smaller tasks.
-- Generate and modify code.
-- Create and organize project files.
-- Assist with debugging and troubleshooting.
-- Help improve existing implementations.
-- Coordinate multi-step development workflows.
-
-### 🖥️ Work With the Environment
-
-Eagle AI is designed to interact with the project workspace and supported system tools.
-
-Depending on the available integrations and permissions, it can assist with operations across files, projects, and connected development applications.
-
-**The vision: an AI agent that doesn't just tell you what to do — it helps you get the work done.**
+- Embedded **Three.js** 3D stage (glTF, GLB, OBJ, STL)
+- Live responsive preview across Phone, Tablet, Laptop & Wide breakpoints
+- Clean Tailwind CSS export
+- Figma import support
 
 <div align="center">
 
-<img src="./eagleai.png" width="95%" alt="Eagle AI">
+| Visual Builder 1 | Visual Builder 2 |
+|:---:|:---:|
+| <img src="./1.png" width="100%" alt="Visual Builder"> | <img src="./2.png" width="100%" alt="Visual Builder"> |
 
-**EAGLE AI — Understand. Plan. Execute. Create.**
+**VISUAL BUILDER — Your ideas, visually transformed.**
+
+</div>
+
+---
+
+## ⚡ 04 — Physics-Driven Arduino Simulator
+### Real physics. Real feedback. 60 FPS.
+
+Powered by the **E38 Motion Engine**, the Arduino Simulator goes far beyond simple LED blinking.  
+It models real microcontrollers, ICs, sensors, motors, and passive components using **Modified Nodal Analysis (MNA)**.
+
+The engine accurately simulates:
+
+- Back-EMF
+- Thermal filament curves
+- Motor spin-up dynamics
+- Servo pulse slew rates
+
+…in real time at **60 FPS**.
+
+**Workflow Freedom**
+
+- Place components → generate C++ code  
+- Or paste Arduino code → watch the circuit build itself
+
+**Professional Tools**
+
+- 4-channel oscilloscope
+- Edge-triggered logic analyzer (UART / I2C decoders)
+- Magnetic snapping for effortless wiring
+
+<div align="center">
+
+| Arduino Simulator 1 | Arduino Simulator 2 |
+|:---:|:---:|
+| <img src="./3.png" width="100%" alt="Arduino Simulator"> | <img src="./4.png" width="100%" alt="Arduino Simulator"> |
+
+**ARDUINO SIMULATOR — Bring electronic ideas to life.**
 
 </div>
 
@@ -209,42 +206,49 @@ Depending on the available integrations and permissions, it can assist with oper
 # 🧩 One Workspace. Multiple Possibilities.
 
 | Module | Purpose |
-|---|---|
-| 🎨 Visual Builder | Visual interface and web design |
-| 💻 Code Editor | Code editing and project development |
-| 🌐 Web Development | HTML, CSS, and JavaScript |
-| 📱 Android Workflow | Web-based Android development |
-| ⚡ Arduino Simulator | Electronics and Arduino simulation |
-| 🤖 Eagle AI | Intelligent development assistance |
+|--------|---------|
+| 💻 **Code Editor** | High-speed polyglot editing (30+ languages) |
+| 🤖 **Eagle AI** | Autonomous self-healing project orchestrator |
+| 🎨 **Visual Builder** | Drag & drop + Tailwind export + 3D stage |
+| ⚡ **Arduino Simulator** | Physics-based electronics simulation (60 FPS) |
+| 📱 **Android Builds** | Visual Builder & Arduino apps available for Android |
 
 ---
 
-# 🌟 Why EagleIDE?
+# 🌟 Why Eagle IDE?
 
-Modern development often requires several separate applications for design, coding, simulation, and AI assistance.
+Modern development usually forces you to jump between many disconnected tools.  
+Eagle IDE brings them together.
 
-EagleIDE aims to connect these workflows in one environment.
-
-- **Unified Workflow:** Work across different development disciplines.
-- **Visual + Code:** Combine visual creation with hands-on programming.
-- **AI Integration:** Bring intelligent assistance into your projects.
-- **Experimentation:** Explore electronics and simulation concepts.
-- **Creative Freedom:** Move from ideas to implementation.
-- **Extensible Vision:** A development environment designed to evolve.
+- **Unified Workflow** — Design, code, simulate, and automate in one place
+- **Visual + Code** — Seamless transition between visual creation and real programming
+- **Self-Healing AI** — Not just suggestions — actual project-level fixes
+- **Real Physics** — Electronics simulation that behaves like the real world
+- **Production Ready** — Clean code export, multi-language support, Git integration
+- **Future Proof** — Built to evolve with new modules and AI capabilities
 
 ---
 
-# 🖼️ Screenshots
+# 🖼️ Full Screenshot Gallery
 
 <div align="center">
 
-| Main Workspace | Visual Builder |
+### Code Editor
+| <img src="./5.png" width="100%"> | <img src="./6.png" width="100%"> |
 |:---:|:---:|
-| <img src="./EagleIDE.png" width="100%" alt="Main Workspace"> | <img src="./VisualBuilder.png" width="100%" alt="Visual Builder"> |
 
-| Arduino Simulator | Eagle AI |
+### Eagle AI Agent
+| <img src="./7.png" width="100%"> | <img src="./8.png" width="100%"> |
 |:---:|:---:|
-| <img src="./ArduinoSimulator.png" width="100%" alt="Arduino Simulator"> | <img src="./eagleai.png" width="100%" alt="Eagle AI"> |
+| <img src="./9.png" width="100%"> | <img src="./10.png" width="100%"> |
+
+### Visual Builder
+| <img src="./1.png" width="100%"> | <img src="./2.png" width="100%"> |
+|:---:|:---:|
+
+### Arduino Simulator
+| <img src="./3.png" width="100%"> | <img src="./4.png" width="100%"> |
+|:---:|:---:|
 
 </div>
 
@@ -252,40 +256,45 @@ EagleIDE aims to connect these workflows in one environment.
 
 # 🚀 Getting Started
 
-1. Visit the official EagleIDE website.
-2. Open the GitHub Releases page.
-3. Download the available Windows installer.
-4. Run the installer and follow the setup instructions.
-5. Launch EagleIDE and start creating.
+1. Visit the official website or GitHub Releases
+2. Download the Windows installer (`.exe`)
+3. Run the installer and follow the setup steps
+4. Launch Eagle IDE
+5. Start creating
 
 <div align="center">
 
 <a href="https://github.com/ProgKady/EagleIDE/releases">
-<img src="https://img.shields.io/badge/DOWNLOAD_EAGLEIDE-Get_Started-16A34A?style=for-the-badge&logo=windows&logoColor=white" alt="Download EagleIDE">
+<img src="https://img.shields.io/badge/DOWNLOAD_EAGLE_IDE-Get_Started-16A34A?style=for-the-badge&logo=windows&logoColor=white" alt="Download Eagle IDE">
 </a>
 
 </div>
 
+**Also available:**
+- Visual Builder (Android)
+- Arduino Simulator (Android)
+- Eagle AI (Android) — *Coming Soon*
+
 ---
 
-# 🎯 Who Is EagleIDE For?
+# 🎯 Who Is Eagle IDE For?
 
-| Audience | What They Can Explore |
-|---|---|
-| Developers | Code editing and project development |
-| Designers | Visual interface creation |
-| Students | Programming and electronics learning |
-| Makers | Arduino and simulation projects |
-| Creators | Visual design and application building |
-| AI Enthusiasts | AI-assisted development workflows |
+| Audience | What They Get |
+|----------|---------------|
+| **Developers** | Fast multi-language editor + AI agent + Git tools |
+| **Designers** | Professional visual builder with Tailwind export |
+| **Students** | Learn programming + electronics in one place |
+| **Makers** | Real physics Arduino simulation |
+| **Full-stack Creators** | From idea → design → code → hardware |
+| **AI Enthusiasts** | True agentic AI that plans and executes |
 
 ---
 
 # 🔭 Our Vision
 
-We believe the future of development is about connecting creativity, technology, and intelligence.
+We believe the future of development is about connecting **creativity**, **technology**, and **intelligence**.
 
-EagleIDE aims to bring design, programming, electronics, mobile development, and AI together in a single evolving environment.
+Eagle IDE aims to bring design, programming, electronics, mobile development, and AI together in a single evolving environment.
 
 This is more than a collection of tools.
 
@@ -296,23 +305,23 @@ This is more than a collection of tools.
 # 📬 Links & Community
 
 | Resource | Link |
-|---|---|
-| 🌐 Official Website | [EagleIDE Website](https://progkady.github.io/EagleIDE/) |
+|----------|------|
+| 🌐 Official Website | [progkady.github.io/EagleIDE](https://progkady.github.io/EagleIDE/) |
 | 💻 GitHub Repository | [ProgKady/EagleIDE](https://github.com/ProgKady/EagleIDE) |
-| 📦 Releases | [Download EagleIDE](https://github.com/ProgKady/EagleIDE/releases) |
+| 📦 Releases | [Download Eagle IDE](https://github.com/ProgKady/EagleIDE/releases) |
 | 🐛 Issues | [Report a Problem](https://github.com/ProgKady/EagleIDE/issues) |
 
 ---
 
 <div align="center">
 
-# 🦅 EagleIDE
+# 🦅 Eagle IDE
 
 ### BUILD BEYOND LIMITS.
 
 **Designed for creativity. Built for development. Powered by intelligence.**
 
-Made with ❤️ by **Kadysoft Ltd.**
+Made with ❤️ by **Kadysoft Inc.**
 
 <a href="#top">Back to Top ↑</a>
 
@@ -324,156 +333,154 @@ Made with ❤️ by **Kadysoft Ltd.**
 
 # 🇪🇬 التوثيق باللغة العربية
 
-## 🦅 مرحبًا بك في EagleIDE
+## 🦅 مرحبًا بك في Eagle IDE
 
-**EagleIDE مش مجرد محرر أكواد؛ دي بيئة تطوير متكاملة** بتجمع التصميم المرئي والبرمجة ومحاكاة الإلكترونيات وتطوير تطبيقات أندرويد والذكاء الاصطناعي في مكان واحد.
+**Eagle IDE مش مجرد محرر أكواد.**  
+دي بيئة تطوير متكاملة من الجيل الجديد، مصممة للمبرمجين والمصممين والطلاب وصناع المحتوى والمبتكرين.
 
-تخيل إن عندك مصمم واجهات شبيه بأدوات زي Figma، ومحرر أكواد قوي، ومحاكي أردوينو، وبيئة لتطوير تطبيقات أندرويد من الويب، ووكيل ذكاء اصطناعي يقدر يساعدك في التعامل مع المشاريع والأدوات المتاحة.
+بتجمع بين:
 
-كل ده داخل بيئة واحدة.
+- محرر أكواد فائق السرعة يدعم **أكثر من 30 لغة**
+- وكيل ذكاء اصطناعي ذاتي الإصلاح (**Eagle AI**)
+- مصمم واجهات مرئي احترافي + دعم ثلاثي الأبعاد
+- محاكي أردوينو حقيقي قائم على الفيزياء (60 إطار في الثانية)
 
-> **من الفكرة للتصميم، ومن التصميم للكود، ومن الكود لمشروع حقيقي.**
+كل ده جوه بيئة سطح مكتب نظيفة وعالية الأداء.
+
+> **بطل تتنقل بين أدوات كتير.  
+> ابني البرمجيات والهاردوير في تدفق واحد مركز.**
 
 ---
 
-# ✨ عالم EagleIDE
+# ✨ عالم Eagle IDE
 
-## 🎨 01 — Visual Builder
-### صمّم واجهاتك بصريًا
+## 💻 01 — محرر الأكواد عالي السرعة
+### كفاءة قصوى. أدوات احترافية. قوة حقيقية.
 
-مصمم واجهات مرئي مستوحى من أدوات التصميم الحديثة زي Figma.
+محرر Eagle IDE مصمم للسرعة والدقة. بيدعم بشكل أصلي أكثر من **30 لغة وإطار عمل**، منها: Java، Python، C، C++، Rust، Kotlin، Go، PHP، SQL، JavaScript، TypeScript، React وغيرها الكثير.
 
-يساعدك تبني واجهات الويب وترتب العناصر وتتحكم في شكلها وخصائصها من خلال مساحة تصميم مرئية.
+مبني على مزيج محسّن من **JavaFX RichTextFX** و **CodeMirror 5.65.16**، وبيفضل سريع حتى مع المشاريع الكبيرة والهياكل العميقة.
 
-**أهم الإمكانيات:**
+**أهم الإمكانيات**
 
-- تصميم الواجهات بشكل مرئي.
-- سحب وترتيب العناصر.
-- التحكم في مواضع العناصر.
-- تعديل خصائص العناصر.
-- تخصيص الألوان والتنسيقات.
-- بناء تخطيطات صفحات الويب.
-- ربط التصميم بعملية تطوير الويب.
-
-سواء بتصمم موقع أو لوحة تحكم أو واجهة تطبيق، Visual Builder بيساعدك تحول أفكارك لتصميم قابل للتطوير.
+- إدارة جلسات متعددة التبويبات
+- عرض فروقات Git مباشرة في الهامش
+- مساعدة التوقيعات ومعلومات التحويم الذكية
+- موازنة الأقواس والتحليل في الوقت الحقيقي
+- دعم واسع للغات البرمجة الحديثة والكلاسيكية
+- تكامل سلس مع Eagle AI وباقي الوحدات
 
 <div align="center">
 
-<img src="./VisualBuilder.png" width="95%" alt="مصمم EagleIDE المرئي">
+| محرر الأكواد 1 | محرر الأكواد 2 |
+|:---:|:---:|
+| <img src="./5.png" width="100%" alt="محرر Eagle IDE"> | <img src="./6.png" width="100%" alt="محرر Eagle IDE"> |
 
-**Visual Builder — حوّل أفكارك لتصميمات حقيقية.**
+**محرر الأكواد — اكتب. طوّر. حسّن.**
 
 </div>
 
 ---
 
-## 💻 02 — محرر الأكواد
-### بيئة تطوير قوية لمشاريعك
+## 🤖 02 — Eagle AI (منسق المشاريع الذاتي)
+### مش مجرد شات. محرك وكيل حقيقي.
 
-محرر مخصص لكتابة الأكواد والعمل على المشاريع وتنظيم الملفات داخل بيئة تطوير واحدة.
+محرك **EagleAI** هو منسق وكيل حقيقي.  
+اديله هدف عالي المستوى وهو بيقوم بـ:
 
-**أهم الإمكانيات:**
+1. تخطيط الهيكل الكامل للمشروع
+2. توليد قوائم الملفات بصيغة JSON عبر مخطط البنية
+3. تنفيذ توليد الأكواد بشكل متوازي على ملفات متعددة
+4. تشغيل حلقات مراجعة ذاتية عميقة عبر مدقق المشروع
+5. تطبيق إصلاحات ذاتية حتى يصبح المشروع نظيفًا
 
-- تطوير HTML.
-- تطوير CSS.
-- تطوير JavaScript.
-- إدارة الملفات والمشاريع.
-- أدوات مخصصة لتحرير الأكواد.
-- بيئة متكاملة لتطوير الويب.
-- التكامل مع أدوات EagleIDE.
-- مساعدة الذكاء الاصطناعي من خلال Eagle AI.
+**الموفرون المدعومون**  
+OpenAI · Gemini · Ollama · Groq · والمزيد
 
-سواء بتبدأ مشروع جديد أو بتطور مشروع موجود، EagleIDE بيوفر لك مساحة عمل تجمع أدوات التطوير في مكان واحد.
+**المميزات الرئيسية**
+
+- نسخ احتياطي تلقائي للمشروع قبل أي عملية AI
+- دفع التحديثات مباشرة إلى GitHub
+- دعم متعدد الموفرين — غيّر الموديل في أي وقت
+- إصلاح ذاتي يكتشف الاستيرادات المفقودة والمراجع المعطوبة
+- توليد متوازي لملفات متعددة
 
 <div align="center">
 
-<img src="./EagleIDE.png" width="95%" alt="محرر EagleIDE">
+| Eagle AI 1 | Eagle AI 2 |
+|:---:|:---:|
+| <img src="./7.png" width="100%" alt="Eagle AI"> | <img src="./8.png" width="100%" alt="Eagle AI"> |
 
-**Code Editor — اكتب، طوّر، وابتكر.**
+| Eagle AI 3 | Eagle AI 4 |
+|:---:|:---:|
+| <img src="./9.png" width="100%" alt="Eagle AI"> | <img src="./10.png" width="100%" alt="Eagle AI"> |
+
+**Eagle AI — افهم. خطط. نفّذ. أصلح. ابتكر.**
 
 </div>
 
 ---
 
-## 📱 03 — تطوير Android من الويب
-### حوّل تقنيات الويب لتجارب موبايل
+## 🎨 03 — المصمم المرئي ومُصدّر Tailwind
+### صمم بصريًا. صدّر كود جاهز للإنتاج.
 
-EagleIDE بيقرب المسافة بين تطوير الويب وتطوير تطبيقات أندرويد.
+صمّم واجهات ويب وموبايل حديثة باستخدام لوحة سحب وإفلات قوية.  
+المصمم المرئي بيحول تصميماتك إلى HTML نظيف جاهز للإنتاج مع أدوات Tailwind CSS محكمة النطاق — بدون تضخم أو كلاسات غير ضرورية.
 
-استخدم تقنيات الويب المألوفة في بناء واجهات وتجارب التطبيقات، ونظّم ملفات مشروعك داخل بيئة العمل.
+تقدر كمان تستورد تصميمات Figma وتحولها لمكونات قابلة للتعديل.
 
-**أهم الإمكانيات:**
+**مميزات متقدمة**
 
-- بناء واجهات باستخدام تقنيات الويب.
-- استخدام HTML وCSS وJavaScript.
-- تنظيم ملفات وموارد التطبيق.
-- الاستفادة من خبرتك في تطوير الويب.
-- ربط مشاريع الويب بسير عمل تطوير أندرويد.
-
-**من الويب للموبايل — في بيئة واحدة.**
-
----
-
-## ⚡ 04 — Arduino Simulator
-### جرّب الإلكترونيات قبل تنفيذها
-
-محاكي للأردوينو والمكونات الإلكترونية يساعدك تستكشف أفكارك وتتعلم وتختبر مشاريعك داخل بيئة محاكاة.
-
-**أهم الإمكانيات:**
-
-- كتابة أكواد Arduino.
-- محاكاة المكونات الإلكترونية.
-- تجربة التوصيلات وتحديد الأرجل.
-- اختبار أفكار الدوائر الإلكترونية.
-- التعلم بالتجربة والتعديل.
-- تطوير أفكار المشاريع الإلكترونية.
+- منصة **Three.js** ثلاثية الأبعاد مدمجة (glTF، GLB، OBJ، STL)
+- معاينة حية عبر نقاط توقف الهاتف والتابلت واللابتوب والشاشات العريضة
+- تصدير Tailwind CSS نظيف
+- دعم استيراد Figma
 
 <div align="center">
 
-<img src="./ArduinoSimulator.png" width="95%" alt="محاكي الأردوينو">
+| المصمم المرئي 1 | المصمم المرئي 2 |
+|:---:|:---:|
+| <img src="./1.png" width="100%" alt="Visual Builder"> | <img src="./2.png" width="100%" alt="Visual Builder"> |
 
-**Arduino Simulator — جرّب أفكارك الإلكترونية.**
+**المصمم المرئي — حوّل أفكارك لتصميمات حقيقية.**
 
 </div>
 
 ---
 
-## 🤖 05 — Eagle AI
-### وكيل ذكاء اصطناعي لمساعدتك في التطوير
+## ⚡ 04 — محاكي الأردوينو القائم على الفيزياء
+### فيزياء حقيقية. تغذية راجعة حقيقية. 60 إطار في الثانية.
 
-تعرّف على **Eagle AI**، المساعد الذكي المصمم للعمل مع بيئة التطوير والمشاريع والأكواد والأدوات المتاحة.
+مدعوم بمحرك **E38 Motion**، محاكي الأردوينو بيتجاوز مجرد إضاءة الـ LED.  
+بيحاكي المتحكمات الدقيقة والدوائر المتكاملة والحساسات والمحركات والمكونات السلبية باستخدام **تحليل العقدة المعدلة (MNA)**.
 
-مش مجرد شات بيرد على الأسئلة؛ الفكرة إنه يساعدك تحول طلبك لمهام تطوير فعلية.
+المحرك بيحاكي بدقة:
 
-### 🧠 الفهم والتحليل
+- القوة الدافعة العكسية (Back-EMF)
+- منحنيات الخيوط الحرارية
+- ديناميكيات دوران المحركات
+- معدلات ميل نبضات السيرفو
 
-- فهم هيكل المشاريع.
-- قراءة وتحليل الأكواد.
-- استكشاف الملفات والاعتماديات.
-- المساعدة في اكتشاف المشاكل والتحسينات.
+…في الوقت الحقيقي بسرعة **60 إطار في الثانية**.
 
-### ⚙️ التخطيط والتنفيذ
+**حرية سير العمل**
 
-- تقسيم المهام الكبيرة لخطوات.
-- إنشاء وتعديل الأكواد.
-- إنشاء وتنظيم ملفات المشروع.
-- المساعدة في اكتشاف الأخطاء وإصلاحها.
-- تطوير وتحسين الأكواد الموجودة.
-- تنفيذ مهام تطوير متعددة الخطوات.
+- ضع المكونات ← ولّد كود C++  
+- أو الصق كود Arduino ← وشاهد الدائرة تُبنى تلقائيًا
 
-### 🖥️ التعامل مع بيئة العمل
+**أدوات احترافية**
 
-Eagle AI مصمم للتفاعل مع مساحة المشروع وأدوات النظام المدعومة.
-
-وبحسب الأدوات والتكاملات والصلاحيات المتاحة، يقدر يساعد في تنفيذ عمليات على الملفات والمشاريع وتطبيقات التطوير المتصلة.
-
-**الهدف: ذكاء اصطناعي مش بس يقولك تعمل إيه، لكنه يساعدك تنفذ شغلك.**
+- راسم ذبذبات رباعي القنوات
+- محلل منطقي بحواف تشغيل (فك تشفير UART / I2C)
+- التقاط مغناطيسي لتوصيل سهل
 
 <div align="center">
 
-<img src="./eagleai.png" width="95%" alt="Eagle AI">
+| محاكي الأردوينو 1 | محاكي الأردوينو 2 |
+|:---:|:---:|
+| <img src="./3.png" width="100%" alt="Arduino Simulator"> | <img src="./4.png" width="100%" alt="Arduino Simulator"> |
 
-**Eagle AI — افهم، خطط، نفّذ، وابتكر.**
+**محاكي الأردوينو — أحيِ أفكارك الإلكترونية.**
 
 </div>
 
@@ -482,91 +489,107 @@ Eagle AI مصمم للتفاعل مع مساحة المشروع وأدوات ا�
 # 🧩 بيئة واحدة وإمكانيات متعددة
 
 | الوحدة | الاستخدام |
-|---|---|
-| 🎨 Visual Builder | تصميم واجهات الويب بصريًا |
-| 💻 Code Editor | كتابة الأكواد وتطوير المشاريع |
-| 🌐 Web Development | تطوير HTML وCSS وJavaScript |
-| 📱 Android Workflow | تطوير تطبيقات أندرويد من الويب |
-| ⚡ Arduino Simulator | محاكاة الإلكترونيات والأردوينو |
-| 🤖 Eagle AI | مساعد ذكي لتطوير المشاريع |
+|--------|---------|
+| 💻 **محرر الأكواد** | تحرير عالي السرعة لأكثر من 30 لغة |
+| 🤖 **Eagle AI** | منسق مشاريع ذاتي الإصلاح |
+| 🎨 **المصمم المرئي** | سحب وإفلات + تصدير Tailwind + منصة 3D |
+| ⚡ **محاكي الأردوينو** | محاكاة إلكترونيات قائمة على الفيزياء (60 FPS) |
+| 📱 **نسخ أندرويد** | تطبيقات Visual Builder وArduino متاحة للأندرويد |
 
 ---
 
-# 🌟 ليه EagleIDE؟
+# 🌟 ليه Eagle IDE؟
 
-بدل ما تستخدم برامج منفصلة للتصميم والبرمجة والمحاكاة والذكاء الاصطناعي، EagleIDE بيحاول يجمع التجارب دي داخل بيئة واحدة.
+التطوير الحديث غالبًا بيخلي المستخدم يتنقل بين أدوات منفصلة.  
+Eagle IDE بيجمعهم في مكان واحد.
 
-- **تكامل الأدوات:** أكثر من مجال تطوير في مكان واحد.
-- **التصميم والبرمجة:** انتقال بين العمل المرئي وكتابة الكود.
-- **الذكاء الاصطناعي:** مساعد ذكي داخل سير عمل المشاريع.
-- **التجربة والمحاكاة:** استكشاف الإلكترونيات والأفكار.
-- **حرية الإبداع:** من الفكرة للتنفيذ.
-- **التطوير المستمر:** بيئة قابلة للتوسع والتحسين.
+- **سير عمل موحد** — صمم، اكتب كود، حاكي، وأتمت في مكان واحد
+- **المرئي + الكود** — انتقال سلس بين التصميم والبرمجة الحقيقية
+- **ذكاء اصطناعي ذاتي الإصلاح** — مش مجرد اقتراحات، إصلاحات على مستوى المشروع
+- **فيزياء حقيقية** — محاكاة إلكترونيات تتصرف زي العالم الحقيقي
+- **جاهز للإنتاج** — تصدير كود نظيف، دعم متعدد اللغات، تكامل Git
+- **جاهز للمستقبل** — مبني ليتطور مع وحدات وقدرات AI جديدة
 
 ---
 
-# 🖼️ استكشف EagleIDE
+# 🖼️ معرض اللقطات الكامل
 
 <div align="center">
 
-| الواجهة الرئيسية | المصمم المرئي |
+### محرر الأكواد
+| <img src="./5.png" width="100%"> | <img src="./6.png" width="100%"> |
 |:---:|:---:|
-| <img src="./EagleIDE.png" width="100%" alt="الواجهة الرئيسية"> | <img src="./VisualBuilder.png" width="100%" alt="Visual Builder"> |
 
-| محاكي الأردوينو | Eagle AI |
+### وكيل Eagle AI
+| <img src="./7.png" width="100%"> | <img src="./8.png" width="100%"> |
 |:---:|:---:|
-| <img src="./ArduinoSimulator.png" width="100%" alt="Arduino Simulator"> | <img src="./eagleai.png" width="100%" alt="Eagle AI"> |
+| <img src="./9.png" width="100%"> | <img src="./10.png" width="100%"> |
+
+### المصمم المرئي
+| <img src="./1.png" width="100%"> | <img src="./2.png" width="100%"> |
+|:---:|:---:|
+
+### محاكي الأردوينو
+| <img src="./3.png" width="100%"> | <img src="./4.png" width="100%"> |
+|:---:|:---:|
 
 </div>
 
 ---
 
-# 🚀 ابدأ مع EagleIDE
+# 🚀 ابدأ مع Eagle IDE
 
-1. ادخل على الموقع الرسمي.
-2. افتح صفحة الإصدارات على GitHub.
-3. حمّل نسخة التثبيت المتاحة لنظام Windows.
-4. شغّل ملف التثبيت واتبع الخطوات.
-5. افتح EagleIDE وابدأ مشروعك.
+1. زور الموقع الرسمي أو صفحة الإصدارات على GitHub
+2. حمّل مثبت ويندوز (`.exe`)
+3. شغّل المثبت واتبع الخطوات
+4. افتح Eagle IDE
+5. ابدأ الإبداع
 
 <div align="center">
 
 <a href="https://github.com/ProgKady/EagleIDE/releases">
-<img src="https://img.shields.io/badge/تحميل_EagleIDE-ابدأ_الآن-16A34A?style=for-the-badge&logo=windows" alt="تحميل EagleIDE">
+<img src="https://img.shields.io/badge/تحميل_Eagle_IDE-ابدأ_الآن-16A34A?style=for-the-badge&logo=windows&logoColor=white" alt="تحميل Eagle IDE">
 </a>
 
 </div>
 
+**متاح كمان:**
+- Visual Builder (أندرويد)
+- Arduino Simulator (أندرويد)
+- Eagle AI (أندرويد) — *قريبًا*
+
 ---
 
-# 🎯 مين يقدر يستخدم EagleIDE؟
+# 🎯 مين يقدر يستخدم Eagle IDE؟
 
-| المستخدم | الاستخدام |
-|---|---|
-| المبرمجون | كتابة الأكواد وتطوير المشاريع |
-| المصممون | بناء واجهات المستخدم |
-| الطلاب | تعلم البرمجة والإلكترونيات |
-| هواة الإلكترونيات | تجربة مشاريع الأردوينو |
-| المبدعون | تصميم وتطوير التطبيقات |
-| مهتمو الذكاء الاصطناعي | تطوير المشاريع بمساعدة AI |
+| المستخدم | ماذا يحصل |
+|----------|-----------|
+| **المبرمجون** | محرر سريع متعدد اللغات + وكيل AI + أدوات Git |
+| **المصممون** | مصمم مرئي احترافي مع تصدير Tailwind |
+| **الطلاب** | تعلم البرمجة والإلكترونيات في مكان واحد |
+| **هواة الصنع** | محاكاة أردوينو بفيزياء حقيقية |
+| **المبدعون الشاملون** | من الفكرة ← التصميم ← الكود ← الهاردوير |
+| **محبو الذكاء الاصطناعي** | ذكاء اصطناعي وكيل حقيقي يخطط وينفذ |
 
 ---
 
 # 🔭 رؤيتنا
 
-إحنا بنؤمن إن مستقبل التطوير مش مجرد كتابة أكواد، لكنه ربط الإبداع بالتكنولوجيا والذكاء.
+إحنا بنؤمن إن مستقبل التطوير هو ربط **الإبداع** و**التكنولوجيا** و**الذكاء**.
 
-هدف EagleIDE إنه يجمع التصميم والبرمجة والإلكترونيات وتطوير تطبيقات الموبايل والذكاء الاصطناعي في بيئة واحدة قابلة للتطور.
+هدف Eagle IDE إنه يجمع التصميم والبرمجة والإلكترونيات وتطوير الموبايل والذكاء الاصطناعي في بيئة واحدة قابلة للتطور.
 
-**مش مجرد مجموعة أدوات، دي مساحة عمل لتحويل الأفكار لحقيقة.**
+مش مجرد مجموعة أدوات.
+
+**دي مساحة عمل لتحويل الأفكار إلى واقع.**
 
 ---
 
-# 📬 روابط EagleIDE
+# 📬 روابط Eagle IDE
 
 | الخدمة | الرابط |
-|---|---|
-| 🌐 الموقع الرسمي | [EagleIDE Website](https://progkady.github.io/EagleIDE/) |
+|--------|--------|
+| 🌐 الموقع الرسمي | [progkady.github.io/EagleIDE](https://progkady.github.io/EagleIDE/) |
 | 💻 مستودع GitHub | [ProgKady/EagleIDE](https://github.com/ProgKady/EagleIDE) |
 | 📦 التحميل | [Releases](https://github.com/ProgKady/EagleIDE/releases) |
 | 🐛 الإبلاغ عن مشكلة | [Issues](https://github.com/ProgKady/EagleIDE/issues) |
@@ -575,13 +598,13 @@ Eagle AI مصمم للتفاعل مع مساحة المشروع وأدوات ا�
 
 <div align="center">
 
-# 🦅 EagleIDE
+# 🦅 Eagle IDE
 
 ### BUILD BEYOND LIMITS.
 
 **صُمم للإبداع. بُني للتطوير. ومدعوم بالذكاء.**
 
-Made with ❤️ by **Kadysoft Ltd.**
+Made with ❤️ by **Kadysoft Inc.**
 
 <a href="#english">English ↑</a> &nbsp; • &nbsp; <a href="#top">العودة للأعلى ↑</a>
 
