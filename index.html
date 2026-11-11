@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +75,6 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: background-color 0.35s ease, color 0.35s ease;
     }
-
     /* ========== DARK (VS Code) ========== */
     .dark body {
       background-color: #1e1e1e;
@@ -116,7 +115,6 @@
       background: #252526;
       border: 1px solid #3c3c3c;
     }
-
     /* ========== LIGHT ========== */
     .light body {
       background-color: #f3f3f3;
@@ -158,7 +156,6 @@
       background: #ffffff;
       border: 1px solid #e0e0e0;
     }
-
     .gradient-text {
       background: linear-gradient(135deg, #007acc 0%, #c586c0 50%, #4ec9b0 100%);
       -webkit-background-clip: text;
@@ -171,7 +168,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(36px);
@@ -181,7 +177,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
     .lightbox {
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
@@ -189,7 +184,6 @@
       opacity: 1;
       visibility: visible;
     }
-
     .img-pair {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -200,7 +194,6 @@
         grid-template-columns: 1fr;
       }
     }
-
     .preview-img {
       width: 100%;
       height: auto;
@@ -214,7 +207,6 @@
         max-height: 320px;
       }
     }
-
     .dialog-overlay {
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
@@ -222,7 +214,6 @@
       opacity: 1;
       visibility: visible;
     }
-
     .custom-scroll::-webkit-scrollbar {
       width: 6px;
     }
@@ -233,10 +224,12 @@
       background: #3c3c3c;
       border-radius: 3px;
     }
+    /* RTL Support */
+    [dir="rtl"] .text-left { text-align: right; }
+    [dir="rtl"] .text-right { text-align: left; }
   </style>
 </head>
 <body class="transition-colors duration-300 antialiased selection:bg-vscode-selection selection:text-white">
-
   <!-- Ambient glow (dark only) -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-ambient">
     <div class="absolute -top-40 -right-40 w-[520px] h-[520px] bg-[#007acc]/12 rounded-full blur-[130px] animate-pulse-glow"></div>
@@ -258,26 +251,30 @@
         </div>
         <div class="flex flex-col leading-none">
           <span class="text-lg font-extrabold tracking-tight text-heading">Eagle <span class="gradient-text">IDE</span></span>
-          <span class="text-[10px] text-body font-medium tracking-wide mt-0.5">By Kadysoft</span>
+          <span class="text-[10px] text-body font-medium tracking-wide mt-0.5" data-i18n="by-kadysoft">By Kadysoft</span>
         </div>
       </a>
-
       <nav class="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-body">
-        <a href="#overview" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-layer-group text-[11px] text-[#007acc]"></i> Overview</a>
-        <a href="#editor-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-code text-[11px] text-[#569cd6]"></i> Editor</a>
-        <a href="#ai-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-robot text-[11px] text-[#c586c0]"></i> AI Agent</a>
-        <a href="#visual-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-cubes text-[11px] text-[#4ec9b0]"></i> Visual Builder</a>
-        <a href="#arduino-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-microchip text-[11px] text-[#6a9955]"></i> Arduino</a>
+        <a href="#overview" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-layer-group text-[11px] text-[#007acc]"></i> <span data-i18n="nav-overview">Overview</span></a>
+        <a href="#editor-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-code text-[11px] text-[#569cd6]"></i> <span data-i18n="nav-editor">Editor</span></a>
+        <a href="#ai-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-robot text-[11px] text-[#c586c0]"></i> <span data-i18n="nav-ai">AI Agent</span></a>
+        <a href="#visual-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-cubes text-[11px] text-[#4ec9b0]"></i> <span data-i18n="nav-visual">Visual Builder</span></a>
+        <a href="#arduino-section" class="hover:text-[#007acc] transition flex items-center gap-1.5"><i class="fa-solid fa-microchip text-[11px] text-[#6a9955]"></i> <span data-i18n="nav-arduino">Arduino</span></a>
       </nav>
-
       <div class="flex items-center gap-3">
+        <!-- Language Toggle -->
+        <button id="langToggle" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-body hover:text-[#007acc] transition relative group" title="Toggle Language">
+          <i class="fa-solid fa-globe text-sm"></i>
+          <span id="langLabel" class="absolute -bottom-5 text-[9px] font-bold opacity-0 group-hover:opacity-100 transition pointer-events-none">EN</span>
+        </button>
+        <!-- Theme Toggle -->
         <button id="themeToggle" class="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-body hover:text-[#007acc] transition" title="Toggle Theme">
           <i class="fa-solid fa-moon text-sm dark:hidden"></i>
           <i class="fa-solid fa-sun text-sm hidden dark:block text-amber-400"></i>
         </button>
         <a href="https://github.com/ProgKady/EagleIDE/releases" target="_blank" rel="noopener"
            class="px-4 py-2 rounded-lg bg-[#007acc] hover:bg-[#1a8ad4] font-bold text-white text-[13px] shadow-lg shadow-[#007acc]/25 hover:scale-[1.03] transition duration-300 flex items-center gap-2">
-          <i class="fa-solid fa-download text-xs"></i> Get Eagle IDE
+          <i class="fa-solid fa-download text-xs"></i> <span data-i18n="btn-get">Get Eagle IDE</span>
         </a>
       </div>
     </div>
@@ -287,45 +284,42 @@
   <section id="overview" class="relative pt-16 sm:pt-24 pb-14 sm:pb-20 px-5 sm:px-8 max-w-6xl mx-auto text-center reveal">
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-[#007acc]/35 text-[#007acc] text-[11px] font-bold tracking-wide mb-7">
       <span class="w-1.5 h-1.5 rounded-full bg-[#6a9955] animate-ping"></span>
-      Version (OMAR) 2.1.0 — Full Hardware & Software Convergence
+      <span data-i18n="hero-badge">Version (OMAR) 2.1.0 — Full Hardware & Software Convergence</span>
     </div>
-
     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-heading mb-6">
-      The Next-Generation IDE Powered by<br>
-      <span class="gradient-text">Self-Healing AI & Physics Simulation</span>
+      <span data-i18n="hero-title-1">The Next-Generation IDE Powered by</span><br>
+      <span class="gradient-text" data-i18n="hero-title-2">Self-Healing AI & Physics Simulation</span>
     </h1>
-
-    <p class="text-[15px] sm:text-lg text-body max-w-3xl mx-auto leading-relaxed mb-10">
+    <p class="text-[15px] sm:text-lg text-body max-w-3xl mx-auto leading-relaxed mb-10" data-i18n="hero-desc">
       Eagle IDE is a complete unified workspace engineered for serious developers and hardware innovators. It combines a blazing-fast polyglot code editor, an autonomous AI project orchestrator, a professional visual web & 3D builder, and a real physics-based Arduino simulator — all inside one clean, high-performance desktop environment. Stop jumping between tools. Build software and hardware systems in a single focused flow.
     </p>
-
     <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
       <div class="px-4 py-3 rounded-xl glass-card flex items-center gap-3 min-w-[160px]">
         <i class="fa-solid fa-code text-[#569cd6] text-lg"></i>
         <div class="text-left">
-          <div class="text-sm font-bold text-heading">30+ Languages</div>
-          <div class="text-[11px] text-body">Java, Python, C++, Rust…</div>
+          <div class="text-sm font-bold text-heading" data-i18n="stat-langs">30+ Languages</div>
+          <div class="text-[11px] text-body" data-i18n="stat-langs-sub">Java, Python, C++, Rust…</div>
         </div>
       </div>
       <div class="px-4 py-3 rounded-xl glass-card flex items-center gap-3 min-w-[160px]">
         <i class="fa-solid fa-cubes text-[#4ec9b0] text-lg"></i>
         <div class="text-left">
-          <div class="text-sm font-bold text-heading">Visual Builder</div>
-          <div class="text-[11px] text-body">Drag & Drop 2D/3D</div>
+          <div class="text-sm font-bold text-heading" data-i18n="stat-visual">Visual Builder</div>
+          <div class="text-[11px] text-body" data-i18n="stat-visual-sub">Drag & Drop 2D/3D</div>
         </div>
       </div>
       <div class="px-4 py-3 rounded-xl glass-card flex items-center gap-3 min-w-[160px]">
         <i class="fa-solid fa-robot text-[#c586c0] text-lg"></i>
         <div class="text-left">
-          <div class="text-sm font-bold text-heading">Eagle AI Engine</div>
-          <div class="text-[11px] text-body">Self-healing & parallel</div>
+          <div class="text-sm font-bold text-heading" data-i18n="stat-ai">Eagle AI Engine</div>
+          <div class="text-[11px] text-body" data-i18n="stat-ai-sub">Self-healing & parallel</div>
         </div>
       </div>
       <div class="px-4 py-3 rounded-xl glass-card flex items-center gap-3 min-w-[160px]">
         <i class="fa-solid fa-microchip text-[#6a9955] text-lg"></i>
         <div class="text-left">
-          <div class="text-sm font-bold text-heading">Arduino Simulator</div>
-          <div class="text-[11px] text-body">Code & simulate hardware</div>
+          <div class="text-sm font-bold text-heading" data-i18n="stat-arduino">Arduino Simulator</div>
+          <div class="text-[11px] text-body" data-i18n="stat-arduino-sub">Code & simulate hardware</div>
         </div>
       </div>
     </div>
@@ -336,15 +330,15 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       <div class="lg:col-span-5 space-y-5 reveal">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#007acc]/10 border border-[#007acc]/30 text-[#007acc] font-mono text-[11px] uppercase font-bold">
-          <i class="fa-solid fa-terminal"></i> Module 01 / Core Editor
+          <i class="fa-solid fa-terminal"></i> <span data-i18n="mod1-badge">Module 01 / Core Editor</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-heading leading-tight">
-          High-Speed Polyglot<br><span class="gradient-text">Editor & Syntax Linter</span>
+          <span data-i18n="mod1-title-1">High-Speed Polyglot</span><br><span class="gradient-text" data-i18n="mod1-title-2">Editor & Syntax Linter</span>
         </h2>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod1-p1">
           Eagle IDE’s core editor is engineered for extreme speed and precision. It ships with native support for more than 30 programming languages and frameworks out of the box, including Java, Python, C, C++, Rust, Kotlin, Go, PHP, SQL, JavaScript, TypeScript, React, and many more. Built on a highly optimized combination of JavaFX RichTextFX and CodeMirror 5.65.16 extensions, the editor stays responsive even with large multi-file projects and deep folder hierarchies.
         </p>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod1-p2">
           You get professional-grade features that serious developers expect: multi-tab session management, inline git diff visualization directly in the editor gutter, intelligent signature help, rich hover information maps, and real-time brace balancing and linting. Whether you are writing low-level systems code or modern full-stack applications, the editor adapts to your workflow and keeps friction to an absolute minimum.
         </p>
         <div class="pt-1 flex flex-wrap gap-2 text-[11px] font-mono text-heading">
@@ -354,23 +348,22 @@
           <span class="px-2.5 py-1 rounded-md glass-card border"><i class="fa-brands fa-rust text-[#dcdcaa] mr-1"></i> Rust</span>
         </div>
       </div>
-
       <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden reveal">
         <div class="card-header-bar px-4 py-2.5 border-b flex items-center justify-between text-[11px] font-mono">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-code text-[#569cd6]"></i> Eagle IDE Editor</span>
-          <span class="text-[#007acc]"><i class="fa-solid fa-images mr-1"></i> Click to expand & switch</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-code text-[#569cd6]"></i> <span data-i18n="mod1-card-title">Eagle IDE Editor</span></span>
+          <span class="text-[#007acc]"><i class="fa-solid fa-images mr-1"></i> <span data-i18n="click-expand">Click to expand & switch</span></span>
         </div>
         <div class="p-3 img-pair">
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['5.png','6.png'], 'Eagle IDE High-Speed Code Editor', 0)">
             <img src="5.png" alt="Eagle IDE Editor View 1" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#007acc] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#007acc] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['5.png','6.png'], 'Eagle IDE High-Speed Code Editor', 1)">
             <img src="6.png" alt="Eagle IDE Editor View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#007acc] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#007acc] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
         </div>
@@ -383,55 +376,53 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden order-2 lg:order-1 reveal">
         <div class="card-header-bar px-4 py-2.5 border-b flex items-center justify-between text-[11px] font-mono">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-[#c586c0]"></i> Eagle AI Agent</span>
-          <span class="text-[#6a9955] font-bold">Self-Healing Pass 100%</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-[#c586c0]"></i> <span data-i18n="mod2-card-title">Eagle AI Agent</span></span>
+          <span class="text-[#6a9955] font-bold" data-i18n="mod2-badge-right">Self-Healing Pass 100%</span>
         </div>
         <div class="p-3 img-pair">
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 0)">
             <img src="7.png" alt="Eagle AI View 1" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 1)">
             <img src="8.png" alt="Eagle AI View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
-		  <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 1)">
-            <img src="9.png" alt="Eagle AI View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 2)">
+            <img src="9.png" alt="Eagle AI View 3" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
-		  <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 1)">
-            <img src="10.png" alt="Eagle AI View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
+          <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['7.png','8.png','9.png','10.png'], 'Eagle AI Autonomous Agent', 3)">
+            <img src="10.png" alt="Eagle AI View 4" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#c586c0] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
-		  
         </div>
       </div>
-
       <div class="lg:col-span-5 space-y-5 order-1 lg:order-2 reveal">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#c586c0]/10 border border-[#c586c0]/30 text-[#c586c0] font-mono text-[11px] uppercase font-bold">
-          <i class="fa-solid fa-brain"></i> Module 02 / Agentic Intelligence
+          <i class="fa-solid fa-brain"></i> <span data-i18n="mod2-badge">Module 02 / Agentic Intelligence</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-heading leading-tight">
-          Autonomous AI<br><span class="gradient-text">Project Orchestrator</span>
+          <span data-i18n="mod2-title-1">Autonomous AI</span><br><span class="gradient-text" data-i18n="mod2-title-2">Project Orchestrator</span>
         </h2>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod2-p1">
           The EagleAI Engine is a true agentic orchestrator, not just a chat wrapper. Give it a high-level goal and it plans the entire architecture, generates structured JSON file lists through the Architecture Planner, and then executes parallel multi-file code generation across your project. It understands dependencies, folder structure, and coding conventions so the output feels like it was written by a senior engineer who already knows your codebase.
         </p>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod2-p2">
           After generation, the built-in Project Auditor runs deep self-review loops. It detects missing imports, broken references, syntax errors, and logical inconsistencies, then automatically applies self-healing fixes until the project is clean. You also get automatic project backups before any AI action and the ability to push updates directly to GitHub. Multi-provider support includes OpenAI, Gemini, Ollama, Groq, and more — switch models anytime without leaving the IDE.
         </p>
         <ul class="space-y-2 text-[13px] font-semibold text-heading">
-          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> Automatic project backups before AI generation</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> Push updates to GitHub automatically</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> Multi-provider support (OpenAI, Gemini, Ollama, Groq…)</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> <span data-i18n="mod2-li1">Automatic project backups before AI generation</span></li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> <span data-i18n="mod2-li2">Push updates to GitHub automatically</span></li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-[#c586c0]"></i> <span data-i18n="mod2-li3">Multi-provider support (OpenAI, Gemini, Ollama, Groq…)</span></li>
         </ul>
       </div>
     </div>
@@ -442,35 +433,34 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       <div class="lg:col-span-5 space-y-5 reveal">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#4ec9b0]/10 border border-[#4ec9b0]/30 text-[#4ec9b0] font-mono text-[11px] uppercase font-bold">
-          <i class="fa-solid fa-cubes"></i> Module 03 / Visual Builder
+          <i class="fa-solid fa-cubes"></i> <span data-i18n="mod3-badge">Module 03 / Visual Builder</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-heading leading-tight">
-          Visual Layout Engine &<br><span class="gradient-text">Tailwind Exporter</span>
+          <span data-i18n="mod3-title-1">Visual Layout Engine &</span><br><span class="gradient-text" data-i18n="mod3-title-2">Tailwind Exporter</span>
         </h2>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod3-p1">
           Design modern responsive web and mobile interfaces using a powerful yet intuitive drag-and-drop visual canvas. The Visual Builder lets you compose layouts visually, then exports clean, production-ready HTML with carefully scoped Tailwind CSS utilities — no bloated code, no unnecessary classes. You can also import Figma designs and convert them into real, editable components inside the canvas.
         </p>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod3-p2">
           For advanced experiences, the builder includes an embedded Three.js 3D stage that supports glTF, GLB, OBJ, and STL models. Test your designs instantly across Phone, Tablet, Laptop, and Wide breakpoints with live responsive preview. Whether you are building marketing sites, dashboards, or interactive 3D product viewers, the Visual Builder turns ideas into clean code in minutes instead of hours.
         </p>
       </div>
-
       <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden reveal">
         <div class="card-header-bar px-4 py-2.5 border-b flex items-center justify-between text-[11px] font-mono">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[#4ec9b0]"></i> Visual Canvas & 3D Stage</span>
-          <span class="text-[#4ec9b0]">Responsive Engine Active</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-laptop-code text-[#4ec9b0]"></i> <span data-i18n="mod3-card-title">Visual Canvas & 3D Stage</span></span>
+          <span class="text-[#4ec9b0]" data-i18n="mod3-badge-right">Responsive Engine Active</span>
         </div>
         <div class="p-3 img-pair">
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['1.png','2.png'], 'Eagle Visual Builder & 3D Stage', 0)">
             <img src="1.png" alt="Visual Builder View 1" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#4ec9b0] text-[#1e1e1e] font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#4ec9b0] text-[#1e1e1e] font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['1.png','2.png'], 'Eagle Visual Builder & 3D Stage', 1)">
             <img src="2.png" alt="Visual Builder View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#4ec9b0] text-[#1e1e1e] font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#4ec9b0] text-[#1e1e1e] font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
         </div>
@@ -483,36 +473,35 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       <div class="lg:col-span-7 glass-card rounded-2xl overflow-hidden order-2 lg:order-1 reveal">
         <div class="card-header-bar px-4 py-2.5 border-b flex items-center justify-between text-[11px] font-mono">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-microchip text-[#6a9955]"></i> Arduino Simulator</span>
-          <span class="text-[#6a9955] font-bold">60 FPS MNA Solver</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-microchip text-[#6a9955]"></i> <span data-i18n="mod4-card-title">Arduino Simulator</span></span>
+          <span class="text-[#6a9955] font-bold" data-i18n="mod4-badge-right">60 FPS MNA Solver</span>
         </div>
         <div class="p-3 img-pair">
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['3.png','4.png'], 'Arduino & Electronics Physics Simulator', 0)">
             <img src="3.png" alt="Arduino Simulator View 1" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#6a9955] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#6a9955] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
           <div class="img-frame rounded-xl overflow-hidden relative group cursor-pointer" onclick="openLightbox(['3.png','4.png'], 'Arduino & Electronics Physics Simulator', 1)">
             <img src="4.png" alt="Arduino Simulator View 2" class="preview-img rounded-xl group-hover:scale-[1.02] transition duration-500">
             <div class="absolute inset-0 bg-[#1e1e1e]/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center rounded-xl">
-              <span class="px-3 py-1.5 bg-[#6a9955] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> Expand</span>
+              <span class="px-3 py-1.5 bg-[#6a9955] text-white font-bold text-[11px] rounded-lg shadow-lg"><i class="fa-solid fa-expand mr-1.5"></i> <span data-i18n="expand">Expand</span></span>
             </div>
           </div>
         </div>
       </div>
-
       <div class="lg:col-span-5 space-y-5 order-1 lg:order-2 reveal">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#6a9955]/10 border border-[#6a9955]/30 text-[#6a9955] font-mono text-[11px] uppercase font-bold">
-          <i class="fa-solid fa-bolt"></i> Module 04 / Hardware Simulation
+          <i class="fa-solid fa-bolt"></i> <span data-i18n="mod4-badge">Module 04 / Hardware Simulation</span>
         </div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-heading leading-tight">
-          Physics-Driven<br><span class="gradient-text">Arduino Simulator</span>
+          <span data-i18n="mod4-title-1">Physics-Driven</span><br><span class="gradient-text" data-i18n="mod4-title-2">Arduino Simulator</span>
         </h2>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod4-p1">
           Powered by the E38 Motion Engine, the Arduino Simulator goes far beyond simple LED blinking. It models real microcontrollers, integrated circuits, sensors, motors, and passive components using Modified Nodal Analysis (MNA). The engine accurately simulates back-EMF, thermal filament curves, motor spin-up dynamics, and servo pulse slew rates in real time at 60 FPS — giving you physics-level feedback while you develop.
         </p>
-        <p class="text-body text-[15px] leading-relaxed">
+        <p class="text-body text-[15px] leading-relaxed" data-i18n="mod4-p2">
           Work the way that feels natural: place components on the canvas and generate the corresponding C++ code, or paste existing Arduino code and watch the circuit build itself. A professional 4-channel oscilloscope, edge-triggered logic analyzer with UART and I2C decoders, and magnetic snapping for effortless wiring complete the toolkit. Perfect for students, makers, and embedded engineers who want to test ideas before touching real hardware.
         </p>
       </div>
@@ -524,37 +513,29 @@
     <div class="relative glass-card rounded-3xl p-8 sm:p-14 border border-[#007acc]/25 overflow-hidden">
       <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#007acc]/15 rounded-full blur-3xl"></div>
       <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-[#c586c0]/10 rounded-full blur-3xl"></div>
-
       <div class="relative z-10 space-y-5">
-        <h2 class="text-2xl sm:text-4xl font-black text-heading">
+        <h2 class="text-2xl sm:text-4xl font-black text-heading" data-i18n="cta-title">
           Supercharge Your Workflow Today
         </h2>
-        <p class="text-body max-w-xl mx-auto text-[15px]">
+        <p class="text-body max-w-xl mx-auto text-[15px]" data-i18n="cta-desc">
           Experience the ultimate modern environment for software development, autonomous AI orchestration, and electronic physics simulation — all in one place.
         </p>
         <div class="pt-3 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
-          <!-- Eagle IDE Desktop - real download -->
           <a href="https://github.com/ProgKady/EagleIDE/releases" target="_blank" rel="noopener"
              class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#007acc] hover:bg-[#1a8ad4] font-bold text-white shadow-xl shadow-[#007acc]/25 hover:scale-[1.03] transition flex items-center justify-center gap-2 text-[14px]">
-            <i class="fa-brands fa-windows"></i> Download Eagle IDE (.exe)
+            <i class="fa-brands fa-windows"></i> <span data-i18n="btn-desktop">Download Eagle IDE (.exe)</span>
           </a>
-
-          <!-- Visual Builder Android - real download -->
           <a href="https://github.com/ProgKady/EagleIDE/releases" target="_blank" rel="noopener"
              class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#4ec9b0] hover:bg-[#3db89e] font-bold text-[#1e1e1e] shadow-xl shadow-[#4ec9b0]/20 hover:scale-[1.03] transition flex items-center justify-center gap-2 text-[14px]">
-            <i class="fa-brands fa-android"></i> Visual Builder (Android)
+            <i class="fa-brands fa-android"></i> <span data-i18n="btn-visual-android">Visual Builder (Android)</span>
           </a>
-
-          <!-- Arduino Simulator Android - real download -->
           <a href="https://github.com/ProgKady/EagleIDE/releases" target="_blank" rel="noopener"
              class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#6a9955] hover:bg-[#5a8848] font-bold text-white shadow-xl shadow-[#6a9955]/20 hover:scale-[1.03] transition flex items-center justify-center gap-2 text-[14px]">
-            <i class="fa-brands fa-android"></i> Arduino Simulator (Android)
+            <i class="fa-brands fa-android"></i> <span data-i18n="btn-arduino-android">Arduino Simulator (Android)</span>
           </a>
-
-          <!-- Eagle AI Android - Coming Soon dialog -->
           <button onclick="openComingSoon()"
              class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#c586c0] to-[#007acc] hover:opacity-90 font-bold text-white shadow-xl shadow-[#c586c0]/25 hover:scale-[1.03] transition flex items-center justify-center gap-2 text-[14px]">
-            <i class="fa-solid fa-robot"></i> Eagle AI (Android)
+            <i class="fa-solid fa-robot"></i> <span data-i18n="btn-ai-android">Eagle AI (Android)</span>
           </button>
         </div>
       </div>
@@ -570,21 +551,21 @@
         </div>
         <div>
           <div class="font-extrabold text-heading text-base">Eagle IDE</div>
-          <div class="text-[11px] text-body">Engineered for Software Creators & Hardware Innovators</div>
+          <div class="text-[11px] text-body" data-i18n="footer-tagline">Engineered for Software Creators & Hardware Innovators</div>
         </div>
       </div>
       <div class="text-[11px] font-mono text-body">
-        <span class="inline-block px-3.5 py-1.5 rounded-full glass-card">
+        <span class="inline-block px-3.5 py-1.5 rounded-full glass-card" data-i18n="footer-security">
           Zero-Knowledge Security · Salted Hashes · Offline Physics
         </span>
       </div>
-      <div class="text-[11px] text-body">
+      <div class="text-[11px] text-body" data-i18n="footer-copy">
         &copy; 2026 Kadysoft Inc. All rights reserved.
       </div>
     </div>
   </footer>
 
-  <!-- ========== LIGHTBOX (with image switching) ========== -->
+  <!-- ========== LIGHTBOX ========== -->
   <div id="lightboxModal" class="lightbox fixed inset-0 z-[60] bg-[#1e1e1e]/85 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 invisible" onclick="closeLightbox()">
     <div class="relative dialog-panel rounded-2xl p-2 max-w-5xl w-full shadow-2xl overflow-hidden animate-fade-in" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between px-4 py-3 border-b border-[#3c3c3c]">
@@ -612,30 +593,26 @@
   <div id="comingSoonModal" class="dialog-overlay fixed inset-0 z-[70] bg-[#1e1e1e]/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 invisible" onclick="closeComingSoon()">
     <div class="relative dialog-panel rounded-2xl max-w-md w-full shadow-2xl overflow-hidden animate-fade-in" onclick="event.stopPropagation()">
       <div class="h-1.5 bg-gradient-to-r from-[#007acc] via-[#c586c0] to-[#4ec9b0]"></div>
-
       <div class="p-7 sm:p-8 text-center">
         <div class="mx-auto w-16 h-16 rounded-2xl bg-[#007acc]/12 border border-[#007acc]/30 flex items-center justify-center mb-5">
           <i class="fa-solid fa-robot text-2xl text-[#007acc]"></i>
         </div>
-
-        <h3 class="text-xl font-extrabold text-heading mb-2">Eagle AI is Almost Here</h3>
-        <p class="text-body text-[14px] leading-relaxed mb-6">
+        <h3 class="text-xl font-extrabold text-heading mb-2" data-i18n="coming-title">Eagle AI is Almost Here</h3>
+        <p class="text-body text-[14px] leading-relaxed mb-6" data-i18n="coming-desc">
           The autonomous Eagle AI engine is currently in final development. Self-healing agents, parallel multi-file generation, and intelligent project orchestration will be available very soon. Stay tuned — the future of coding is landing.
         </p>
-
         <div class="flex items-center justify-center gap-2 text-[12px] text-body mb-6">
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-card">
-            <i class="fa-solid fa-hourglass-half text-[#c586c0]"></i> Coming Soon
+            <i class="fa-solid fa-hourglass-half text-[#c586c0]"></i> <span data-i18n="coming-soon">Coming Soon</span>
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-card">
-            <i class="fa-solid fa-sparkles text-[#4ec9b0]"></i> Self-Healing AI
+            <i class="fa-solid fa-sparkles text-[#4ec9b0]"></i> <span data-i18n="coming-ai">Self-Healing AI</span>
           </span>
         </div>
-
         <div class="flex flex-col sm:flex-row gap-3">
           <a href="https://github.com/ProgKady/EagleIDE/releases" target="_blank" rel="noopener"
              class="flex-1 px-5 py-3 rounded-xl glass-card hover:border-[#007acc] text-heading font-bold text-[13px] transition flex items-center justify-center gap-2">
-            <i class="fa-brands fa-github"></i> Get Desktop App
+            <i class="fa-brands fa-github"></i> <span data-i18n="coming-btn">Get Desktop App</span>
           </a>
         </div>
       </div>
@@ -644,6 +621,180 @@
 
   <!-- Scripts -->
   <script>
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        "by-kadysoft": "By Kadysoft",
+        "nav-overview": "Overview",
+        "nav-editor": "Editor",
+        "nav-ai": "AI Agent",
+        "nav-visual": "Visual Builder",
+        "nav-arduino": "Arduino",
+        "btn-get": "Get Eagle IDE",
+        "hero-badge": "Version (OMAR) 2.1.0 — Full Hardware & Software Convergence",
+        "hero-title-1": "The Next-Generation IDE Powered by",
+        "hero-title-2": "Self-Healing AI & Physics Simulation",
+        "hero-desc": "Eagle IDE is a complete unified workspace engineered for serious developers and hardware innovators. It combines a blazing-fast polyglot code editor, an autonomous AI project orchestrator, a professional visual web & 3D builder, and a real physics-based Arduino simulator — all inside one clean, high-performance desktop environment. Stop jumping between tools. Build software and hardware systems in a single focused flow.",
+        "stat-langs": "30+ Languages",
+        "stat-langs-sub": "Java, Python, C++, Rust…",
+        "stat-visual": "Visual Builder",
+        "stat-visual-sub": "Drag & Drop 2D/3D",
+        "stat-ai": "Eagle AI Engine",
+        "stat-ai-sub": "Self-healing & parallel",
+        "stat-arduino": "Arduino Simulator",
+        "stat-arduino-sub": "Code & simulate hardware",
+        "mod1-badge": "Module 01 / Core Editor",
+        "mod1-title-1": "High-Speed Polyglot",
+        "mod1-title-2": "Editor & Syntax Linter",
+        "mod1-p1": "Eagle IDE’s core editor is engineered for extreme speed and precision. It ships with native support for more than 30 programming languages and frameworks out of the box, including Java, Python, C, C++, Rust, Kotlin, Go, PHP, SQL, JavaScript, TypeScript, React, and many more. Built on a highly optimized combination of JavaFX RichTextFX and CodeMirror 5.65.16 extensions, the editor stays responsive even with large multi-file projects and deep folder hierarchies.",
+        "mod1-p2": "You get professional-grade features that serious developers expect: multi-tab session management, inline git diff visualization directly in the editor gutter, intelligent signature help, rich hover information maps, and real-time brace balancing and linting. Whether you are writing low-level systems code or modern full-stack applications, the editor adapts to your workflow and keeps friction to an absolute minimum.",
+        "mod1-card-title": "Eagle IDE Editor",
+        "click-expand": "Click to expand & switch",
+        "expand": "Expand",
+        "mod2-badge": "Module 02 / Agentic Intelligence",
+        "mod2-title-1": "Autonomous AI",
+        "mod2-title-2": "Project Orchestrator",
+        "mod2-p1": "The EagleAI Engine is a true agentic orchestrator, not just a chat wrapper. Give it a high-level goal and it plans the entire architecture, generates structured JSON file lists through the Architecture Planner, and then executes parallel multi-file code generation across your project. It understands dependencies, folder structure, and coding conventions so the output feels like it was written by a senior engineer who already knows your codebase.",
+        "mod2-p2": "After generation, the built-in Project Auditor runs deep self-review loops. It detects missing imports, broken references, syntax errors, and logical inconsistencies, then automatically applies self-healing fixes until the project is clean. You also get automatic project backups before any AI action and the ability to push updates directly to GitHub. Multi-provider support includes OpenAI, Gemini, Ollama, Groq, and more — switch models anytime without leaving the IDE.",
+        "mod2-li1": "Automatic project backups before AI generation",
+        "mod2-li2": "Push updates to GitHub automatically",
+        "mod2-li3": "Multi-provider support (OpenAI, Gemini, Ollama, Groq…)",
+        "mod2-card-title": "Eagle AI Agent",
+        "mod2-badge-right": "Self-Healing Pass 100%",
+        "mod3-badge": "Module 03 / Visual Builder",
+        "mod3-title-1": "Visual Layout Engine &",
+        "mod3-title-2": "Tailwind Exporter",
+        "mod3-p1": "Design modern responsive web and mobile interfaces using a powerful yet intuitive drag-and-drop visual canvas. The Visual Builder lets you compose layouts visually, then exports clean, production-ready HTML with carefully scoped Tailwind CSS utilities — no bloated code, no unnecessary classes. You can also import Figma designs and convert them into real, editable components inside the canvas.",
+        "mod3-p2": "For advanced experiences, the builder includes an embedded Three.js 3D stage that supports glTF, GLB, OBJ, and STL models. Test your designs instantly across Phone, Tablet, Laptop, and Wide breakpoints with live responsive preview. Whether you are building marketing sites, dashboards, or interactive 3D product viewers, the Visual Builder turns ideas into clean code in minutes instead of hours.",
+        "mod3-card-title": "Visual Canvas & 3D Stage",
+        "mod3-badge-right": "Responsive Engine Active",
+        "mod4-badge": "Module 04 / Hardware Simulation",
+        "mod4-title-1": "Physics-Driven",
+        "mod4-title-2": "Arduino Simulator",
+        "mod4-p1": "Powered by the E38 Motion Engine, the Arduino Simulator goes far beyond simple LED blinking. It models real microcontrollers, integrated circuits, sensors, motors, and passive components using Modified Nodal Analysis (MNA). The engine accurately simulates back-EMF, thermal filament curves, motor spin-up dynamics, and servo pulse slew rates in real time at 60 FPS — giving you physics-level feedback while you develop.",
+        "mod4-p2": "Work the way that feels natural: place components on the canvas and generate the corresponding C++ code, or paste existing Arduino code and watch the circuit build itself. A professional 4-channel oscilloscope, edge-triggered logic analyzer with UART and I2C decoders, and magnetic snapping for effortless wiring complete the toolkit. Perfect for students, makers, and embedded engineers who want to test ideas before touching real hardware.",
+        "mod4-card-title": "Arduino Simulator",
+        "mod4-badge-right": "60 FPS MNA Solver",
+        "cta-title": "Supercharge Your Workflow Today",
+        "cta-desc": "Experience the ultimate modern environment for software development, autonomous AI orchestration, and electronic physics simulation — all in one place.",
+        "btn-desktop": "Download Eagle IDE (.exe)",
+        "btn-visual-android": "Visual Builder (Android)",
+        "btn-arduino-android": "Arduino Simulator (Android)",
+        "btn-ai-android": "Eagle AI (Android)",
+        "footer-tagline": "Engineered for Software Creators & Hardware Innovators",
+        "footer-security": "Zero-Knowledge Security · Salted Hashes · Offline Physics",
+        "footer-copy": "© 2026 Kadysoft Inc. All rights reserved.",
+        "coming-title": "Eagle AI is Almost Here",
+        "coming-desc": "The autonomous Eagle AI engine is currently in final development. Self-healing agents, parallel multi-file generation, and intelligent project orchestration will be available very soon. Stay tuned — the future of coding is landing.",
+        "coming-soon": "Coming Soon",
+        "coming-ai": "Self-Healing AI",
+        "coming-btn": "Get Desktop App"
+      },
+      ar: {
+        "by-kadysoft": "بواسطة Kadysoft",
+        "nav-overview": "نظرة عامة",
+        "nav-editor": "المحرر",
+        "nav-ai": "وكيل الذكاء الاصطناعي",
+        "nav-visual": "الباني المرئي",
+        "nav-arduino": "أردوينو",
+        "btn-get": "احصل على Eagle IDE",
+        "hero-badge": "الإصدار (عمر) 2.1.0 — تكامل كامل بين الأجهزة والبرمجيات",
+        "hero-title-1": "بيئة التطوير من الجيل القادم مدعومة بـ",
+        "hero-title-2": "ذكاء اصطناعي ذاتي الإصلاح ومحاكاة فيزيائية",
+        "hero-desc": "Eagle IDE هو مساحة عمل موحدة كاملة مصممة للمطورين الجادين ومبتكري الأجهزة. يجمع بين محرر أكواد متعدد اللغات فائق السرعة، ومنظم مشاريع ذكاء اصطناعي مستقل، وباني مرئي احترافي للويب وثلاثي الأبعاد، ومحاكي أردوينو قائم على الفيزياء الحقيقية — كل ذلك داخل بيئة سطح مكتب نظيفة وعالية الأداء. توقف عن التنقل بين الأدوات. ابنِ أنظمة البرمجيات والأجهزة في تدفق واحد مركّز.",
+        "stat-langs": "أكثر من 30 لغة",
+        "stat-langs-sub": "جافا، بايثون، سي++، راست…",
+        "stat-visual": "الباني المرئي",
+        "stat-visual-sub": "سحب وإفلات 2D/3D",
+        "stat-ai": "محرك Eagle AI",
+        "stat-ai-sub": "ذاتي الإصلاح ومتوازي",
+        "stat-arduino": "محاكي الأردوينو",
+        "stat-arduino-sub": "برمجة ومحاكاة الأجهزة",
+        "mod1-badge": "الوحدة 01 / المحرر الأساسي",
+        "mod1-title-1": "محرر متعدد اللغات",
+        "mod1-title-2": "عالي السرعة ومدقق بناء الجملة",
+        "mod1-p1": "محرر Eagle IDE الأساسي مصمم للسرعة والدقة القصوى. يدعم أكثر من 30 لغة برمجة وإطار عمل بشكل أصلي، بما في ذلك جافا، بايثون، سي، سي++، راست، كوتلن، جو، بي إتش بي، إس كيو إل، جافا سكريبت، تايب سكريبت، رياكت، والعديد غيرها. مبني على مزيج محسّن للغاية من JavaFX RichTextFX وامتدادات CodeMirror 5.65.16، ويبقى المحرر سريع الاستجابة حتى مع المشاريع الكبيرة متعددة الملفات والتسلسلات الهرمية العميقة.",
+        "mod1-p2": "تحصل على ميزات احترافية يتوقعها المطورون الجادون: إدارة جلسات متعددة التبويبات، تصور فروقات git مباشرة في هامش المحرر، مساعدة التوقيع الذكية، خرائط معلومات التحويم الغنية، وموازنة الأقواس والتحقق في الوقت الفعلي. سواء كنت تكتب كود أنظمة منخفض المستوى أو تطبيقات حديثة كاملة المكدس، يتكيف المحرر مع سير عملك ويبقي الاحتكاك إلى الحد الأدنى.",
+        "mod1-card-title": "محرر Eagle IDE",
+        "click-expand": "انقر للتوسيع والتبديل",
+        "expand": "توسيع",
+        "mod2-badge": "الوحدة 02 / الذكاء الوكيلي",
+        "mod2-title-1": "ذكاء اصطناعي مستقل",
+        "mod2-title-2": "منظم المشاريع",
+        "mod2-p1": "محرك EagleAI هو منظم وكيل حقيقي، وليس مجرد غلاف دردشة. أعطه هدفاً عالي المستوى فيخطط الهيكل بأكمله، ويولد قوائم ملفات JSON منظمة عبر مخطط الهيكل، ثم ينفذ توليد كود متعدد الملفات بالتوازي عبر مشروعك. يفهم التبعيات وهيكل المجلدات واتفاقيات الترميز بحيث يبدو الناتج وكأنه كُتب بواسطة مهندس كبير يعرف قاعدة الكود بالفعل.",
+        "mod2-p2": "بعد التوليد، يقوم مدقق المشروع المدمج بتشغيل حلقات مراجعة ذاتية عميقة. يكتشف الاستيرادات المفقودة والمراجع المكسورة وأخطاء بناء الجملة والتناقضات المنطقية، ثم يطبق إصلاحات ذاتية الشفاء تلقائياً حتى يصبح المشروع نظيفاً. كما تحصل على نسخ احتياطية تلقائية للمشروع قبل أي إجراء للذكاء الاصطناعي والقدرة على دفع التحديثات مباشرة إلى GitHub. دعم متعدد المزودين يشمل OpenAI وGemini وOllama وGroq والمزيد — بدّل النماذج في أي وقت دون مغادرة الـ IDE.",
+        "mod2-li1": "نسخ احتياطية تلقائية للمشروع قبل توليد الذكاء الاصطناعي",
+        "mod2-li2": "دفع التحديثات إلى GitHub تلقائياً",
+        "mod2-li3": "دعم متعدد المزودين (OpenAI, Gemini, Ollama, Groq…)",
+        "mod2-card-title": "وكيل Eagle AI",
+        "mod2-badge-right": "تمريرة الشفاء الذاتي 100%",
+        "mod3-badge": "الوحدة 03 / الباني المرئي",
+        "mod3-title-1": "محرك التخطيط المرئي و",
+        "mod3-title-2": "مُصدّر Tailwind",
+        "mod3-p1": "صمم واجهات ويب وجوال حديثة متجاوبة باستخدام لوحة مرئية قوية وبديهية بالسحب والإفلات. يتيح لك الباني المرئي تكوين التخطيطات بصرياً، ثم يصدّر HTML نظيفاً جاهزاً للإنتاج مع أدوات Tailwind CSS محددة النطاق بعناية — بدون كود منتفخ أو فئات غير ضرورية. يمكنك أيضاً استيراد تصاميم Figma وتحويلها إلى مكونات حقيقية قابلة للتحرير داخل اللوحة.",
+        "mod3-p2": "للتجارب المتقدمة، يتضمن الباني مرحلة Three.js ثلاثية الأبعاد مدمجة تدعم نماذج glTF وGLB وOBJ وSTL. اختبر تصاميمك فوراً عبر نقاط التوقف للهاتف والتابلت واللابتوب والعرض الواسع مع معاينة متجاوبة مباشرة. سواء كنت تبني مواقع تسويقية أو لوحات تحكم أو عارضات منتجات ثلاثية الأبعاد تفاعلية، يحول الباني المرئي الأفكار إلى كود نظيف في دقائق بدلاً من ساعات.",
+        "mod3-card-title": "اللوحة المرئية ومرحلة 3D",
+        "mod3-badge-right": "محرك التجاوب نشط",
+        "mod4-badge": "الوحدة 04 / محاكاة الأجهزة",
+        "mod4-title-1": "مدفوع بالفيزياء",
+        "mod4-title-2": "محاكي الأردوينو",
+        "mod4-p1": "مدعوم بمحرك E38 Motion، يتجاوز محاكي الأردوينو مجرد وميض الـ LED البسيط. يُنمذج المتحكمات الدقيقة الحقيقية والدوائر المتكاملة والمستشعرات والمحركات والمكونات السلبية باستخدام تحليل العقد المعدّل (MNA). يحاكي المحرك بدقة القوة الدافعة الكهربائية العكسية ومنحنيات الخيوط الحرارية وديناميكيات دوران المحرك ومعدلات ميل نبضات السيرفو في الوقت الفعلي بمعدل 60 إطاراً في الثانية — مما يمنحك تغذية راجعة على مستوى الفيزياء أثناء التطوير.",
+        "mod4-p2": "اعمل بالطريقة التي تبدو طبيعية: ضع المكونات على اللوحة وولّد كود C++ المقابل، أو الصق كود أردوينو موجوداً وشاهد الدائرة تُبنى بنفسها. منظار ذبذبات احترافي بأربع قنوات، ومحلل منطقي محفّز بالحافة مع أجهزة فك تشفير UART وI2C، والالتقاط المغناطيسي للأسلاك السهلة يكملان مجموعة الأدوات. مثالي للطلاب والصناع ومهندسي الأنظمة المدمجة الذين يريدون اختبار الأفكار قبل لمس الأجهزة الحقيقية.",
+        "mod4-card-title": "محاكي الأردوينو",
+        "mod4-badge-right": "حلّال MNA بمعدل 60 إطار/ثانية",
+        "cta-title": "عزّز سير عملك اليوم",
+        "cta-desc": "اختبر البيئة الحديثة المثالية لتطوير البرمجيات وتنسيق الذكاء الاصطناعي المستقل ومحاكاة الفيزياء الإلكترونية — كل ذلك في مكان واحد.",
+        "btn-desktop": "تحميل Eagle IDE (.exe)",
+        "btn-visual-android": "الباني المرئي (أندرويد)",
+        "btn-arduino-android": "محاكي الأردوينو (أندرويد)",
+        "btn-ai-android": "Eagle AI (أندرويد)",
+        "footer-tagline": "مصمم لمبدعي البرمجيات ومبتكري الأجهزة",
+        "footer-security": "أمان المعرفة الصفرية · تجزئة مملحة · فيزياء دون اتصال",
+        "footer-copy": "© 2026 Kadysoft. جميع الحقوق محفوظة.",
+        "coming-title": "Eagle AI قادم قريباً",
+        "coming-desc": "محرك Eagle AI المستقل قيد التطوير النهائي حالياً. الوكلاء ذاتيو الإصلاح وتوليد الملفات المتعددة المتوازي وتنسيق المشاريع الذكي سيكونون متاحين قريباً جداً. ترقّب — مستقبل البرمجة قادم.",
+        "coming-soon": "قريباً",
+        "coming-ai": "ذكاء اصطناعي ذاتي الإصلاح",
+        "coming-btn": "احصل على تطبيق سطح المكتب"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const html = document.documentElement;
+      html.lang = lang;
+      html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update language label
+      const langLabel = document.getElementById('langLabel');
+      if (langLabel) langLabel.textContent = lang === 'en' ? 'EN' : 'AR';
+
+      // Save preference
+      localStorage.setItem('eagle-lang', lang);
+    }
+
+    // Language toggle
+    document.getElementById('langToggle').addEventListener('click', () => {
+      const newLang = currentLang === 'en' ? 'ar' : 'en';
+      setLanguage(newLang);
+    });
+
+    // Load saved language
+    const savedLang = localStorage.getItem('eagle-lang') || 'en';
+    if (savedLang !== 'en') {
+      setLanguage(savedLang);
+    }
+
     // Theme toggle
     const themeToggleBtn = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
@@ -705,12 +856,10 @@
 
     // Coming Soon dialog
     const comingSoonModal = document.getElementById('comingSoonModal');
-
     function openComingSoon() {
       comingSoonModal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeComingSoon() {
       comingSoonModal.classList.remove('active');
       document.body.style.overflow = 'auto';
